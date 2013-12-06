@@ -902,26 +902,86 @@
               </form>
           </div>
         </section>
+       
+          <div id="iphone">
+
+      <h3 id="store1"> 
+   2. Enter your phone number and we will send you a text message containing your Login details and a link to the App Store</h3>
         
+        
+        
+        <?php if($this->session->flashdata('signup_failed')) { ?>
+          <div class="alert alert-danger">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <?php echo $this->session->flashdata('signup_failed'); ?>
+          </div>
+        <?php } ?>
+                  
+        <section>            
+          <div class="appbgcl">
+          
+              <form name="frm-signup-mobile" id="frm-signup-mobile" 
+              method="post" action="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/apps/invalid">
+                 
+                  <div>
+                      <label>
+                          Your Phone Number</label>
+                      <input type="text" class="<?php echo $this->config->item('small_flag'); ?>" value="+<?php echo $this->config->item('prefix_phone_web'); ?>" name="UK" readonly="readonly">
+                      <input type="text" name="phone_number" required="required" pattern="[0-9]{5,}" />
+                      <input type="hidden" name="device" id="device" value="iphone" />
+                  </div>
+                  <label></label>
+                
+                  <button type="submit" class="signupimg leftcaed">sign-up</button>
+              </form>
+          </div>
+        </section>
+       </div>
               
-     </div>
+    
      </section>
     </div>
   </div>
  
- <script type="text/javascript">
+  <script type="text/javascript">
 	$(document).ready(function() {
-        $('#iphone-android').hide();
+    
+    var pass = $('#password').val();
+    var conf_pass = $('#confirm_password').val();
+	
+    
+    $('#confirm_password').change(function() {
+      
+	  if(pass != conf_pass){
+        $("#confirm_password").setCustomValidity("Passwords Don't Match");
+		alert('mp');
+      }
+	  
+    });
+    
+    
+    $('#iphone-android').hide();
+      $('#iphone').hide();
 		
-		if(window.location.href == '<?php echo base_url().$this->session->userdata('lang'); ?>/sign_up#mobile') {
+		if(window.location.href == '<?php echo base_url().$this->session->userdata('lang'); ?>/sign_up#android') {
 			$('#img_landline').attr('src','<?php echo get_template_directory_uri(); ?>/img/landlineandmobile.jpg');
 			$('#img_android').attr('src','<?php echo get_template_directory_uri(); ?>/img/android_select.png');
 			$('#landline').hide();
 			$('#iphone-android').show();
+			$('#iphone').hide();
+		}
+		
+		if(window.location.href == '<?php echo base_url().$this->session->userdata('lang'); ?>/sign_up#iphone') {
+			$('#img_landline').attr('src','<?php echo get_template_directory_uri(); ?>/img/landlineandmobile.jpg');
+			$('#img_iPhone').attr('src','<?php echo get_template_directory_uri(); ?>/img/iphone_select.png');
+			$('#landline').hide();
+			$('#iphone-android').hide();
+			$('#iphone').show();
 		}
 		
 		$('#tim1').on('change', function() {
 			$('#landline').show();
+			 $('#iphone').hide();
 			$('#iphone-android').hide();
 			
 		});
@@ -930,6 +990,7 @@
 		$('#tim2').on('change', function() {
 			$('#landline').hide();
 			$('#iphone-android').show();
+			$('#iphone').hide();
 			$('#device').val('android');
 			$('#store').text('2. Enter your phone number and we will send you a text message containing your Login details and a link to the Google Play Store');
 		});
@@ -937,14 +998,18 @@
 		$('#tim3').on('change', function() {
 			$('#landline').hide();
 			$('#iphone-android').hide();
+			$('#iphone').show();
+			$('#device').val('iphone');
 			$('#img_landline').attr('src','<?php echo get_template_directory_uri(); ?>/img/landlineandmobile.jpg');
 			$('#img_android').attr('src','<?php echo get_template_directory_uri(); ?>/img/android.png');
+		
 				
 		});
 		
 		$('#tim4').on('change', function() {
 			$('#landline').hide();
 			$('#iphone-android').hide();
+			$('#iphone').hide();
 			$('#img_landline').attr('src','<?php echo get_template_directory_uri(); ?>/img/landlineandmobile.jpg');
 			$('#img_android').attr('src','<?php echo get_template_directory_uri(); ?>/img/android.png');
 		});
@@ -952,33 +1017,35 @@
     });
   </script>
 <style type="text/css">
-     .signupe a{
-    background-image: url('http://mundio-test.azurewebsites.net/wp-content/themes/new_chillitalk/img/signupin.png') !important;
+   #signupat {
+    background-image: 
+	url("http://mundio-test.azurewebsites.net/wp-content/themes/new_chillitalk/img/signupnew.png") !important}
+
+.signupe a {
+    background-image: url("http://mundio-test.azurewebsites.net/wp-content/themes/new_chillitalk/img/signupin.png") !important;
     background-repeat: no-repeat !important;
-	width:115px;
-	height:30px;
-	text-indent:20px;
-	color:#fff !important;
+    color: #FFFFFF !important;
+    height: 30px;
+    text-indent: 20px;
+    width: 115px;
 }
-#tim1 + img {
-    margin-right: -6px;
-    margin-top: -11px;
-}
+#landline h3{
 
-
-.appbgcl input[type="text"], .appbgcl input[type="email"], .appbgcl input[type="password"], .appbgcl select {
-    height: 26px;
-    margin: 0 10px;
-    padding: 0 !important;
-    width: 218px;
+text-align: justify;
+width: 700px;
+text-indent: 0px;
 }
 .txtgreen
 {
 background-color:#6ea600 !important;
-height: 34px !important;
-} 
+height: 34px;
+}
 .txtgreen li a,.topclass select,.topclass section
 {
-display:none !important;
-} 
+ display:none !important;
+
+}
+#radios1 img {
+    margin: -22px 33px -7px 0;
+}
 </style>
