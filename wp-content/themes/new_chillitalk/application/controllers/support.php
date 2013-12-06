@@ -127,6 +127,13 @@ class Support extends MY_Controller{
 		$this->load->view('template/wrapper', $data);
 		
 	}
+		public function about_us() {
+		
+		header("HTTP/1.1 200 OK");
+		$data = array('title' => 'aboutus', 'content' => 'support/about_us');
+		$this->load->view('template/wrapper', $data);
+		
+	}
 	
 	
 	
