@@ -14,7 +14,7 @@
     <link href="<?php echo get_template_directory_uri(); ?>/css/colorbox.css" rel="stylesheet" type="text/css">
     <!--JS-->
 
-    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.js"></script>
+ <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.colorbox-min.js" type="text/javascript"></script>
     <script>
 		$(document).ready(function() {
@@ -27,6 +27,10 @@
 									  ); 
         });
 	</script>  
+      <script type="text/javascript" src='http://code.jquery.com/jquery-1.7.1.min.js'></script>
+ <script type="text/javascript" src='http://code.jquery.com/jquery-1.7.1.min.js'></script>
+      <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/js_vdf_2012.js"></script>
+      <link href="<?php echo get_template_directory_uri(); ?>/css/css_style2012.css" rel="stylesheet" type="text/css" />
 
 
 </head>
@@ -70,7 +74,8 @@
               <select name="amount" id="amount" required>
                   <option value=""><?php echo lang('add.Selectamount'); ?></option>
                   <?php foreach($amount->List as $val) { ?>
-                  <option value="<?php echo $val->Amount; ?>"><?php echo $this->config->item('currency_symbol_web'); ?> <?php echo $val->Amount; ?></option>
+                  <option value="<?php echo $val->Amount; ?>"><?php echo $this->config->item('currency_symbol_web'); ?> 
+                  <?php echo $val->Amount; ?></option>
                   <?php } ?>
               </select>
           </div>
@@ -100,14 +105,15 @@
           <div class="rightcunt">
               <label class="leftcom"><?php echo lang('add.CardholderFirstname'); ?></label>
               <input type="text" class="insvalue leftcom" name="first_name"  required="required" value="<?php echo set_value('first_name'); ?>" />
-              <img src="<?php echo get_template_directory_uri(); ?>/img/visa.png" alt="Chillitalk Visa" class="imgvisa leftcom" />
+          <!--    <img src="<?php echo get_template_directory_uri(); ?>/img/visa.png" alt="Chillitalk Visa" class="imgvisa leftcom" />-->
+         <span  class="bltxttop"> As printed on your card  </span>
           </div>
           
-          <div class="rightcunt">
+          <!--<div class="rightcunt">
               <label class="leftcom">
               <?php echo lang('add.CardholderLastname'); ?></label>
               <input type="text" class="insvalue leftcom" name="last_name"  required="required" value="<?php echo set_value('last_name'); ?>" />
-          </div>
+          </div>-->
           
           <div class="rightcunt">
               <label class="leftcom"><?php echo lang('add.Creditcardnumber'); ?></label>
@@ -115,15 +121,31 @@
           </div>
           
           <div class="rightcunt">
+          
               <label class="leftcom"><?php echo lang('add.ExpirationandCVV'); ?></label>
               
               <div class="leftcom">
                   <input type="text" class="smtxtbx" value="<?php echo set_value('month'); ?>" placeholder="Month (mm)" name="month" required pattern="[0-9]{2}" min="1" max="12" />
                   
                   <input type="text" class="smtxtbx" value="<?php echo set_value('year'); ?>" placeholder="Year" name="year" required pattern="[0-9]+" min="2009" max="<?php echo date('Y'); ?>" />
-                  <input type="text" class="smtxtbx" value="<?php echo set_value('cvv'); ?>" placeholder="CVV" name="cvv" required />
-              </div>
+                    </div>
           </div>
+                    <div class="rightcunt">
+                       <label class="leftcom">Card Verification code</label>
+                <div   id="vasanth" class="formRow js">    
+                           <input type="text" class="smtxtbx" value="<?php echo set_value('cvv'); ?>" placeholder="CVV" name="cvv" required />
+                          <span style="display:none;" class="helpText">
+                                                             </span>
+                                                           
+         
+                                                       
+                       <div class="helpTextOff">
+                      <span class="icon">What is this?</span>
+                                     </div>      
+                  
+                      </div>  </div>
+                  
+           
           <hr>
           
           <div class="rightcunt">
@@ -132,16 +154,11 @@
               <input type="text" class="largbox" placeholder="Enter phone number (include country code)" name="billing_phone" value="<?php echo set_value('billing_phone'); ?>" required pattern="[0-9]+" />
           </div>
           
-          <div class="rightcunt">
-         	  <label><?php echo lang('add.Country'); ?></label>
-              <select name="country" id="country" onChange="print_state('state',this.selectedIndex);">
-              
-              </select>
-          </div>
+        
           
           <div class="rightcunt">
               <label><?php echo lang('add.Billinga'); ?>     </label>
-              <textarea placeholder="Enter Address" class="largbox" name="address" required><?php echo set_value('address'); ?></textarea>
+              <textarea placeholder="Enter Address" class="largbox" name="address" required><?php echo set_value('address'); ?></textarea>  <span class="bltxttop"> Exactly as on Credit card statement </span>
           	   <br/>   
                <br/>
           </div>
@@ -156,11 +173,18 @@
               <select title="Select state" id="state" name="state" required>
               </select>
               <script type="text/javascript">print_country("country");</script>
-              <script type="text/javascript">date_populate("date", "month", "year");</script>
               
               
               <input type="text" name="zip" value="<?php echo set_value('zip'); ?>" placeholder="Enter Zip.." class="smtxtbx" style="margin-top:10px;" />
           </div>
+          
+            <div class="rightcunt">
+         	  <label><?php echo lang('add.Country'); ?></label>
+              <select name="country" id="country" >
+              
+              </select>
+          </div>
+          
           <hr>
           <div class="rightcunt">
           
@@ -170,7 +194,7 @@
               <div id="text_topup"></div></label>
           </div>
           
-         <!-- <div class="rightcunt">
+          <!--<div class="rightcunt">
                    
                           <label>Captcha</label>
                           <label>
