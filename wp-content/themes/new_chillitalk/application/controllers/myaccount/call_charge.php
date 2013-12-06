@@ -12,99 +12,48 @@ class Call_charge extends MY_Controller{
 	public function index() {
 		header("HTTP/1.1 200 OK");
 		
-		if($this->session->userdata('call_charge_select') == ''){
-			$this->session->unset_userdata('topup_history_year');
-			$this->session->unset_userdata('topup_history_month');
-			$this->session->unset_userdata('call_history_year');
-			$this->session->unset_userdata('call_history_month');
-		}
+		// TOP UP
 		
-		$arr_month = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+		$arr_month = array('01' => 'January', '02' => 'February', '03' => 'March', '04' => 'April', '05' => 'May', 
+						   '06' => 'June', '07' => 'July', '08' => 'August', '09' => 'September', '10' => 'October', 
+						   '11' => 'November', '12' => 'December');
+						   
+		$this->session->unset_userdata('month_charge');
+		$this->session->unset_userdata('year_charge');
+		$this->session->unset_userdata('month_call');
+		$this->session->unset_userdata('year_call');
 		
-		// Top Up
-		if($this->session->userdata('topup_history_year')){
-			$topup_history_year = $this->session->userdata('topup_history_year');
-		}else{
-			$topup_history_year = date('Y');
-		}
-		if($this->session->userdata('topup_history_month')){
-			$topup_history_month = $this->session->userdata('topup_history_month');
-		}else{
-			$topup_history_month = date('n');
-		}
+		$month_charge = date('m');
+		$year_charge = date('Y');
 		
-		$th_dateTo = $num = cal_days_in_month(CAL_GREGORIAN, $topup_history_month, $topup_history_year);
-		$uri_topup = 'http://sws.vectone.com/api/CTPTopupHist?accId='.$this->session->userdata('account_id').'&year='.$topup_history_year.'&month='.$topup_history_month.'&dateTo='.$th_dateTo.'&dateFrom=1';
+		
+		
+		$end_date_charge = cal_days_in_month(CAL_GREGORIAN, $month_charge, $year_charge);
+		
+		$uri_topup = 'http://sws.vectone.com/api/CTPTopupHist?accId='.$this->session->userdata('account_id').'&year='.$year_charge.'&month='.$month_charge.'&dateFrom=1&dateTo='.$end_date_charge;
 			  			
 		$this->rest->format('application/json');
 		  
 		$top_up = $this->rest->get($uri_topup);
 		
-		// Generate Topup History Navigation URL
-		if(intval($topup_history_month) == 1){
-			$th_prev_month = 12;
-			$th_prev_year = intval($topup_history_year) - 1;
-			$th_next_month = 2;
-			$th_next_year = intval($topup_history_year);
-		}elseif(intval($topup_history_month) == 12){
-			$th_prev_month = 11;
-			$th_prev_year = intval($topup_history_year);
-			$th_next_month = 1;
-			$th_next_year = intval($topup_history_year) + 1;
-		}else{
-			$th_prev_month = intval($topup_history_month) - 1;
-			$th_prev_year = intval($topup_history_year);
-			$th_next_month = intval($topup_history_month) + 1;
-			$th_next_year = intval($topup_history_year);
-		}
-		$th_nav_url = '<a href="'.base_url().$this->session->userdata('lang').'/myaccount/call_charge/th/'.$th_prev_year.'_'.$th_prev_month.'">< Previous month</a>';
-		$th_nav_url .= '&nbsp;|&nbsp;';
-		$th_nav_url .= '<strong>'.$arr_month[intval($topup_history_month)-1].'</strong>';
-		$th_nav_url .= '&nbsp;|&nbsp;';
-		$th_nav_url .= '<a href="'.base_url().$this->session->userdata('lang').'/myaccount/call_charge/th/'.$th_next_year.'_'.$th_next_month.'">Next month ></a>'; 
 		
-						
+				
 		// Call History
-		if($this->session->userdata('call_history_year')){
-			$call_history_year = $this->session->userdata('call_history_year');
-		}else{
-			$call_history_year = date('Y');
-		}
-		if($this->session->userdata('call_history_month')){
-			$call_history_month = $this->session->userdata('call_history_month');
-		}else{
-			$call_history_month = date('n');
-		}
 		
-		$ch_dateTo = $num = cal_days_in_month(CAL_GREGORIAN, $call_history_month, $call_history_year);
-		$uri_call_history = 'http://sws.vectone.com/api/CTPCallHistory?accId='.$this->session->userdata('account_id').'&year='.$call_history_year.'&month='.$call_history_month.'&dateTo='.$ch_dateTo.'&dateFrom=1';
+		$month_call = date('m');
+	
+		$year_call = date('Y');
+		
+		
+		$end_date_call = cal_days_in_month(CAL_GREGORIAN, $month_call, $year_call);
+		
+		$uri_call_history = 'http://sws.vectone.com/api/CTPCallHistory?accId='.$this->session->userdata('account_id').'&year='.$year_call.'&month='.$month_call.'&dateFrom=1&dateTo='.$end_date_call;
 							
 		$this->rest->format('application/json');
 		  
 		$call_history = $this->rest->get($uri_call_history);
 				
-		// Generate Call History Navigation URL
-		if(intval($call_history_month) == 1){
-			$ch_prev_month = 12;
-			$ch_prev_year = intval($call_history_year) - 1;
-			$ch_next_month = 2;
-			$ch_next_year = intval($call_history_year);
-		}elseif(intval($call_history_month) == 12){
-			$ch_prev_month = 11;
-			$ch_prev_year = intval($call_history_year);
-			$ch_next_month = 1;
-			$ch_next_year = intval($call_history_year) + 1;
-		}else{
-			$ch_prev_month = intval($call_history_month) - 1;
-			$ch_prev_year = intval($call_history_year);
-			$ch_next_month = intval($call_history_month) + 1;
-			$ch_next_year = intval($call_history_year);
-		}
-		$ch_nav_url = '<a href="'.base_url().$this->session->userdata('lang').'/myaccount/call_charge/ch/'.$ch_prev_year.'_'.$ch_prev_month.'">< Previous month</a>';
-		$ch_nav_url .= '&nbsp;|&nbsp;';
-		$ch_nav_url .= '<strong>'.$arr_month[intval($call_history_month)-1].'</strong>';
-		$ch_nav_url .= '&nbsp;|&nbsp;';
-		$ch_nav_url .= '<a href="'.base_url().$this->session->userdata('lang').'/myaccount/call_charge/ch/'.$ch_next_year.'_'.$ch_next_month.'">Next month ></a>'; 
+		
 		
 		
 		// Balance
@@ -119,9 +68,13 @@ class Call_charge extends MY_Controller{
 		$data = array('title' => 'Calling & Charge History',
 					  'isi'   => 'call_charge/list',
 					  'topup' => $top_up,
-					  'th_nav_url' => $th_nav_url,
+					  'month_charge_name' => $arr_month[$month_charge],
+					  'month_charge' => $month_charge,
+					  'year_charge' => $year_charge,
 					  'call'  => $call_history,
-					  'ch_nav_url' => $ch_nav_url,
+					  'month_call_name' => $arr_month[$month_call],
+					  'month_call' => $month_call,
+					  'year_call' => $year_call,
 					  'balance' => $result_balance
 					  );
 		
@@ -129,35 +82,267 @@ class Call_charge extends MY_Controller{
 		$this->load->view('myaccount/template/wrapper',$data);
 	}
 	
-	public function ch() {
-		if($this->uri->segment(4)){
-			$arr_call_history = explode('_', $this->uri->segment(4));
-			$call_history_year = $arr_call_history[0];
-			$call_history_month = $arr_call_history[1];
-		}else{
-			$call_history_year = date('Y');
-			$call_history_month = date('n');
-		}
-		$this->session->set_userdata('call_history_year', $call_history_year);
-		$this->session->set_userdata('call_history_month', $call_history_month);
-		$this->session->set_userdata('call_charge_select', '1');
+	public function charge() {
 		
-		redirect('myaccount/call_charge');
+		header("HTTP/1.1 200 OK");
+		
+		// TOP UP
+		
+		$arr_month = array('1' => 'January', '2' => 'February', '3' => 'March', '4' => 'April', '5' => 'May', 
+						   '6' => 'June', '7' => 'July', '8' => 'August', '9' => 'September', '10' => 'October', 
+						   '11' => 'November', '12' => 'December');
+		
+		
+		$this->session->set_userdata('month_charge', $this->uri->segment('5'));
+		$this->session->set_userdata('year_charge', $this->uri->segment('6'));
+		
+		if($this->uri->segment('4') == 'charge') {
+			$month_charge = $this->session->userdata('month_charge');
+			$year_charge = $this->session->userdata('year_charge');
+		}else{
+			$month_charge = date('m');
+			$year_charge = date('Y');
+			
+		}
+		
+		
+		$month_name_charge = $arr_month[$month_charge];
+		
+		if($month_name_charge == 'December') {
+			$prev_month_charge = $month_charge - 1;
+			$next_month_charge = 1;
+			$prev_year_charge = $this->session->userdata('year_charge');
+			$next_year_charge = $this->session->userdata('year_charge') + 1;
+		}elseif($month_name_charge == 'January') {
+			$prev_month_charge = 12;
+			$next_month_charge = $month_charge + 1;
+			$prev_year_charge = $this->session->userdata('year_charge') - 1;
+			$next_year_charge = $this->session->userdata('year_charge');
+		}else{
+			$prev_month_charge = $month_charge - 1;
+			$next_month_charge = $month_charge + 1;
+			$prev_year_charge = $this->session->userdata('year_charge');
+			$next_year_charge = $this->session->userdata('year_charge');
+		}
+		
+		$end_date_charge = cal_days_in_month(CAL_GREGORIAN, $month_charge, $year_charge);
+		
+		$uri_topup = 'http://sws.vectone.com/api/CTPTopupHist?accId='.$this->session->userdata('account_id').'&year='.$year_charge.'&month='.$month_charge.'&dateFrom=1&dateTo='.$end_date_charge;
+			  			
+		$this->rest->format('application/json');
+		  
+		$top_up = $this->rest->get($uri_topup);
+		
+		
+				
+		// Call History
+		
+		$this->session->set_userdata('month_call', $this->uri->segment('5'));
+		$this->session->set_userdata('year_call', $this->uri->segment('6'));
+		
+		if($this->uri->segment('4') == 'call') {
+			$month_call = $this->session->userdata('month_call');
+			$year_call = $this->session->userdata('year_call');
+		}else{
+			$month_call = date('m');
+			$year_call = date('Y');
+		}
+		
+		$month_name_call = $arr_month[$month_call];
+		
+		if($month_name_call == 'December') {
+			$prev_month_call = $month_call - 1;
+			$next_month_call = 1;
+			$prev_year_call = $this->session->userdata('year_call');
+			$next_year_call = $this->session->userdata('year_call') + 1;
+		}elseif($month_name_call == 'January') {
+			$prev_month_call = 12;
+			$next_month_call = $month_call + 1;
+			$prev_year_call = $this->session->userdata('year_call') - 1;
+			$next_year_call = $this->session->userdata('year_call');
+		}else{
+			$prev_month_call = $month_call - 1;
+			$next_month_call = $month_call + 1;
+			$prev_year_call = $this->session->userdata('year_call');
+			$next_year_call = $this->session->userdata('year_call');
+		}
+		
+		
+		
+		$end_date_call = cal_days_in_month(CAL_GREGORIAN, $month_call, $year_call);
+		
+		$uri_call_history = 'http://sws.vectone.com/api/CTPCallHistory?accId='.$this->session->userdata('account_id').'&year='.$year_call.'&month='.$month_call.'&dateFrom=1&dateTo='.$end_date_call;
+							
+		$this->rest->format('application/json');
+		  
+		$call_history = $this->rest->get($uri_call_history);
+				
+		
+		
+		
+		// Balance
+		
+		$uri_balance = 'http://sws.vectone.com/api/CTPUserAcc?accId='.$this->session->userdata('account_id');
+		  
+		$this->rest->format('application/json');
+	  
+		$result_balance = $this->rest->get($uri_balance);
+		
+		//print_r($result_balance);
+		$data = array('title' => 'Calling & Charge History',
+					  'isi'   => 'call_charge/list_call_charge',
+					  'month_charge_name' => $month_name_charge,
+					  'month_charge' => $month_charge,
+					  'next_month_charge' => $next_month_charge,
+					  'prev_month_charge' => $prev_month_charge,
+					  'year_charge' => $year_charge,
+					  'next_year_charge' => $next_year_charge,
+					  'prev_year_charge' => $prev_year_charge,
+					  'topup' => $top_up,
+					  'month_call_name' => $arr_month[$month_call],
+					  'month_call' => $month_call,
+					  'next_month_call' => $next_month_call,
+					  'prev_month_call' => $prev_month_call,
+					  'year_call' => $year_call,
+					  'next_year_call' => $next_year_call,
+					  'prev_year_call' => $prev_year_call,
+					  'call'  => $call_history,
+					  'balance' => $result_balance
+					  );
+		
+		$this->session->unset_userdata('call_charge_select');
+		$this->load->view('myaccount/template/wrapper',$data);
 	}
 	
-	public function th() {
-		if($this->uri->segment(4)){
-			$arr_topup_history = explode('_', $this->uri->segment(4));
-			$topup_history_year = $arr_topup_history[0];
-			$topup_history_month = $arr_topup_history[1];
-		}else{
-			$topup_history_year = date('Y');
-			$topup_history_month = date('n');
-		}
-		$this->session->set_userdata('topup_history_year', $topup_history_year);
-		$this->session->set_userdata('topup_history_month', $topup_history_month);
-		$this->session->set_userdata('call_charge_select', '1');
+	public function call() {
 		
-		redirect($this->session->userdata('lang').'/myaccount/call_charge');
+		header("HTTP/1.1 200 OK");
+		
+		// TOP UP
+		
+		$arr_month = array('1' => 'January', '2' => 'February', '3' => 'March', '4' => 'April', '5' => 'May', 
+						   '6' => 'June', '7' => 'July', '8' => 'August', '9' => 'September', '10' => 'October', 
+						   '11' => 'November', '12' => 'December');
+		
+		
+		$this->session->set_userdata('month_charge', $this->uri->segment('5'));
+		$this->session->set_userdata('year_charge', $this->uri->segment('6'));
+		
+		if($this->uri->segment('4') == 'charge') {
+			$month_charge = $this->session->userdata('month_charge');
+			$year_charge = $this->session->userdata('year_charge');
+		}else{
+			$month_charge = date('m');
+			$year_charge = date('Y');
+			
+		}
+		
+		
+		$month_name_charge = $arr_month[$month_charge];
+		
+		if($month_name_charge == 'December') {
+			$prev_month_charge = $month_charge - 1;
+			$next_month_charge = 1;
+			$prev_year_charge = $this->session->userdata('year_charge');
+			$next_year_charge = $this->session->userdata('year_charge') + 1;
+		}elseif($month_name_charge == 'January') {
+			$prev_month_charge = 12;
+			$next_month_charge = $month_charge + 1;
+			$prev_year_charge = $this->session->userdata('year_charge') - 1;
+			$next_year_charge = $this->session->userdata('year_charge');
+		}else{
+			$prev_month_charge = $month_charge - 1;
+			$next_month_charge = $month_charge + 1;
+			$prev_year_charge = $this->session->userdata('year_charge');
+			$next_year_charge = $this->session->userdata('year_charge');
+		}
+		
+		$end_date_charge = cal_days_in_month(CAL_GREGORIAN, $month_charge, $year_charge);
+		
+		$uri_topup = 'http://sws.vectone.com/api/CTPTopupHist?accId='.$this->session->userdata('account_id').'&year='.$year_charge.'&month='.$month_charge.'&dateFrom=1&dateTo='.$end_date_charge;
+			  			
+		$this->rest->format('application/json');
+		  
+		$top_up = $this->rest->get($uri_topup);
+		
+		
+				
+		// Call History
+		
+		$this->session->set_userdata('month_call', $this->uri->segment('5'));
+		$this->session->set_userdata('year_call', $this->uri->segment('6'));
+		
+		if($this->uri->segment('4') == 'call') {
+			$month_call = $this->session->userdata('month_call');
+			$year_call = $this->session->userdata('year_call');
+		}else{
+			$month_call = date('m');
+			$year_call = date('Y');
+		}
+		
+		$month_name_call = $arr_month[$month_call];
+		
+		if($month_name_call == 'December') {
+			$prev_month_call = $month_call - 1;
+			$next_month_call = 1;
+			$prev_year_call = $this->session->userdata('year_call');
+			$next_year_call = $this->session->userdata('year_call') + 1;
+		}elseif($month_name_call == 'January') {
+			$prev_month_call = 12;
+			$next_month_call = $month_call + 1;
+			$prev_year_call = $this->session->userdata('year_call') - 1;
+			$next_year_call = $this->session->userdata('year_call');
+		}else{
+			$prev_month_call = $month_call - 1;
+			$next_month_call = $month_call + 1;
+			$prev_year_call = $this->session->userdata('year_call');
+			$next_year_call = $this->session->userdata('year_call');
+		}
+		
+		
+		
+		$end_date_call = cal_days_in_month(CAL_GREGORIAN, $month_call, $year_call);
+		
+		$uri_call_history = 'http://sws.vectone.com/api/CTPCallHistory?accId='.$this->session->userdata('account_id').'&year='.$year_call.'&month='.$month_call.'&dateFrom=1&dateTo='.$end_date_call;
+							
+		$this->rest->format('application/json');
+		  
+		$call_history = $this->rest->get($uri_call_history);
+				
+		
+		
+		
+		// Balance
+		
+		$uri_balance = 'http://sws.vectone.com/api/CTPUserAcc?accId='.$this->session->userdata('account_id');
+		  
+		$this->rest->format('application/json');
+	  
+		$result_balance = $this->rest->get($uri_balance);
+		
+		//print_r($result_balance);
+		$data = array('title' => 'Calling & Charge History',
+					  'isi'   => 'call_charge/list_call_charge',
+					  'month_charge_name' => $month_name_charge,
+					  'month_charge' => $month_charge,
+					  'next_month_charge' => $next_month_charge,
+					  'prev_month_charge' => $prev_month_charge,
+					  'year_charge' => $year_charge,
+					  'next_year_charge' => $next_year_charge,
+					  'prev_year_charge' => $prev_year_charge,
+					  'topup' => $top_up,
+					  'month_call_name' => $arr_month[$month_call],
+					  'month_call' => $month_call,
+					  'next_month_call' => $next_month_call,
+					  'prev_month_call' => $prev_month_call,
+					  'year_call' => $year_call,
+					  'next_year_call' => $next_year_call,
+					  'prev_year_call' => $prev_year_call,
+					  'call'  => $call_history,
+					  'balance' => $result_balance
+					  );
+		
+		$this->session->unset_userdata('call_charge_select');
+		$this->load->view('myaccount/template/wrapper',$data);
 	}
 }

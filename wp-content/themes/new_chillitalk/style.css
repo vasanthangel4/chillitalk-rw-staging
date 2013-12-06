@@ -1036,6 +1036,10 @@ border-radius:0px;
 .caflg
 {
     background-image:url('img/flags/ca.png') !important;
+    background-position: 5px 9px;
+    background-repeat: no-repeat;
+    font-weight: bold;
+    text-indent: 20px;
 }
 .dkflg
 {
@@ -3081,6 +3085,19 @@ font-size:38px !important;
     font-size:42px;
     
 	}
+	
+	.tsddefe2
+	{
+	    display: inline;
+    float: left;
+    margin-left: 0px  !important;
+    margin-top: 0px  !important;
+    width: 1003px;
+    font-size:42px;
+    
+	}	
+	
+	
 	.cstdssd
 	{
 	background-color:#fff !important;
@@ -3522,12 +3539,103 @@ margin:10px 23px 0px 0px;
 {
 	font-size:22px !important;
 }
+.commoncssts li
+{
+list-style-type:disc;
+width:700px;
 
-.tsddefe2 {
-    display: inline;
+}
+ul.commoncssts 
+{
+width:700px;
+float:left;
+display:inline;
+line-height:25px;
+margin-left:22px;
+}
+#vasanth .helpText .message,#vasanth  .helpTextAlt .message
+{
+  background: url('http://chillitalk.co.uk/wp-content/themes/chillitalk/img/uk.png') !important;
+  width:200px !important;
+  height:100px !important;
+}
+.formRow
+{
     float: left;
-    font-size: 42px;
-    margin-left: 0 !important;
-    margin-top: 0 !important;
-    width: 1003px;
+    margin:0px 0px !important;
+    width: 170px !important;
+}
+	
+#vasanth.js .helpText .icon, #vasanth.js .helpTextOff .icon, #vasanth.js .helpTextAlt .icon, #vasanth.js .helpTextAltOff .icon {
+    background-image:none !important;
+    background-repeat: no-repeat !important;
+    display: inline-block;
+    float: left;
+    font-weight: bold;
+    height: 38px;
+    margin: 3px 0 0 6px;
+    text-decoration: underline;
+    width: 128px;
+	text-indent:0px;
+}
+
+.bltxttop
+{
+    display: inline !important;
+    float: left;
+    font-weight: bold;
+    margin: 3px 0 0 9px !important;
+    text-indent: 0 !important;
+
+}
+.largbox
+{
+   display: inline;
+    float: left;
+    width: 207px;
+    margin: 0 0 0 29px;
+}
+#vasanth.js .helpText .messageContainer, #vasanth.js .helpTextAlt .messageContainer
+{
+left:99px;
+}
+
+.vasatxtz   h3 {
+    font-size: 13px;
+    width: 334px;
+    text-ndent:5px;
+}
+
+ .vasatxtz   h3:nth-last-child(1)
+ {
+ width:100px;
+ }
+ .vasatxtz   
+ {
+ width:460px;
+ float:left;
+display:inline;
+ }
+.accessntxt
+{
+float:left;
+display:inline;
+width:920px;
+}
+.varig
+{
+margin-right:10px;
+}
+.vasatxtz img
+{
+float:left;
+display:inline;
+}
+.txtright34
+{
+margin-right: 30px !important;
+}
+.spar
+{
+float:none !important;
 }

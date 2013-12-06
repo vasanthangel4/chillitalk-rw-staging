@@ -50,14 +50,22 @@ class Access_number extends MY_Controller{
 		//print_r($result);
 		if(!empty($result)){
             
-            foreach($result->List as $row) {   
-                $tmp .= "<option value='".$row->Province."'>".$row->Province."</option>";
+            foreach($result->List as $row) { 
+				if($row->Province != '' && $row->City != '') {
+					$tmp .= 'prov';
+					$tmp .= "<option value='".$row->Province."'>".$row->Province."</option>";
+					
+					
+				}elseif($row->City != ''){
+					$tmp .= 'city';
+					$tmp .= "<option value='".$row->City."'>".$row->City."</option>";
+					
+				}
             }
-        } else {
-             $tmp .= "<option value=''>Select States</option>";
+			
+			
         }
         die($tmp);
-       
 	}
 	
 	public function get_detail($val) {
@@ -74,9 +82,61 @@ class Access_number extends MY_Controller{
 		//print_r($result);
 		if(!empty($result)){
             
+			
+					
+					foreach($result->List as $row) {
+						if($row->AccessNo == '') {
+							$tmp .= '<h3><small>-</small></h3>';
+						}else{
+							$tmp .= '<h3><small>'.$row->AccessNo .'</small></h3>';
+						}
+						
+						if($row->Province != '') {
+							if($row->Province != '') {
+								$tmp .= '<h3 class="clearfix"><small>'.$row->Province .'</small></h3>';
+							}else{
+								$tmp .= '<h3><small>-</small></h3>';
+							}
+							
+						}
+						
+						if($row->City != '') {
+							if($row->City != '') {
+								$tmp .= '<h3><small>'.$row->City .'</small></h3><div class="clearfix"></div>';
+							}else{
+								$tmp .= '<h3><small>-</small></h3><div class="clearfix"></div>';
+							}
+							
+						}else{
+							$tmp .= '<div class="clearfix"></div>';
+						}
+						
+					   
+					}
+		   
+			die($tmp);
+       
+		}else{
+			$tmp = '<option value=""></option>';
+		}
+	}
+	
+	public function get_city($co,$val) {
+		
+		header("HTTP/1.1 200 OK");
+		$tmp    = '';
+		
+		$uri = 'http://sws.vectone.com/api/CTPAccessNo?CountryCode='.$co.'&city='.$val;
+		  
+		$this->rest->format('application/json');
+	  	
+		$result = $this->rest->get($uri);
+		
+		//print_r($result);
+		if(!empty($result)){
+            
 			$tmp = '<h3 id="access_caption">Access Number</h3>
-					<h3 id="city_caption">City</h3>
-					<h3 id="state_caption">State</h3>';                
+					<h3 id="city_caption">City</h3><br/><br/><br/>';                
 					
 					foreach($result->List as $row) {
 						if($row->AccessNo == '') {
@@ -91,11 +151,50 @@ class Access_number extends MY_Controller{
 							$tmp .= '<h3><small>'. $row->City .'</small></h3>';
 						}
 						
+					}
+		   
+			die($tmp);
+       
+		}
+	}
+	
+	public function get_city2($co,$val) {
+		
+		header("HTTP/1.1 200 OK");
+		$tmp    = '';
+		
+		$uri = 'http://sws.vectone.com/api/CTPAccessNo?CountryCode='.$co.'&city='.$val;
+		  
+		$this->rest->format('application/json');
+	  	
+		$result = $this->rest->get($uri);
+		
+		//print_r($result);
+		if(!empty($result)){
+            
+			$tmp = '<h3 id="access_caption">Access Number</h3>
+					<h3 id="city_caption">State</h3>
+					<h3 id="city_caption">City</h3>';                
+					
+					foreach($result->List as $row) {
+						if($row->AccessNo == '') {
+							$tmp .= '<h3><small>-</small></h3>';
+						}else{
+							$tmp .= '<h3><small>'.$row->AccessNo .'</small></h3>';
+						}
+						
 						if($row->Province == '') {
 							$tmp .= '<h3><small>-</small></h3>';
 						}else{
 							$tmp .= '<h3><small>'. $row->Province .'</small></h3>';
 						}
+						
+					   if($row->City == '') {
+							$tmp .= '<h3><small>-</small></h3>';
+						}else{
+							$tmp .= '<h3><small>'. $row->City .'</small></h3>';
+						}
+						
 					}
 		   
 			die($tmp);
@@ -118,8 +217,8 @@ class Access_number extends MY_Controller{
 		if(!empty($result)){
             
 			$tmp = '<h3 id="access_caption">Access Number</h3>
-					<h3 id="city_caption">City</h3>
-					<h3 id="state_caption">State</h3>';                
+					<h3 id="state_caption">State</h3>
+					<h3 id="city_caption">City</h3>';                
 					
 					foreach($result->List as $row) {
 						if($row->AccessNo == '') {
@@ -128,18 +227,45 @@ class Access_number extends MY_Controller{
 							$tmp .= '<h3><small>'.$row->AccessNo .'</small></h3>';
 						}
 						
-					   if($row->City == '') {
-							$tmp .= '<h3><small>-</small></h3>';
-						}else{
-							$tmp .= '<h3><small>'. $row->City .'</small></h3>';
-						}
-						
 						if($row->Province == '') {
 							$tmp .= '<h3><small>-</small></h3>';
 						}else{
 							$tmp .= '<h3><small>'. $row->Province .'</small></h3>';
 						}
+						
+						if($row->City == '') {
+							$tmp .= '<h3><small>-</small></h3>';
+						}else{
+							$tmp .= '<h3><small>'. $row->City .'</small></h3>';
+						}
 					}
+		   
+			die($tmp);
+       
+		}
+	}
+	
+	public function get_city_by_state($co,$val) {
+		
+		header("HTTP/1.1 200 OK");
+		$tmp    = '';
+		
+		$uri = 'http://sws.vectone.com/api/CTPAccessNo?CountryCode='.$co.'&province='.$val;
+		  
+		$this->rest->format('application/json');
+	  	
+		$result = $this->rest->get($uri);
+		
+		//print_r($result);
+		if(!empty($result)){
+            
+		
+			foreach($result->List as $row) {
+				
+				$tmp .= "<option value='".$row->City."'>".$row->City."</option>";
+				
+				
+			}
 		   
 			die($tmp);
        

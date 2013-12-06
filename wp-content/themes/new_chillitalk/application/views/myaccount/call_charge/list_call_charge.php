@@ -97,13 +97,13 @@
 	                		</tbody>
 	                	</table>	
 	                	<div class="rightcom rightlink1" style="margin-bottom: 15px">
-                           <a href="<?php echo base_url().$this->session->userdata('lang'); ?>/myaccount/call_charge/charge/<?php echo $month_charge - 1; ?>/<?php echo $year_charge; ?>">
+                           <a href="<?php echo base_url().$this->session->userdata('lang'); ?>/myaccount/call_charge/charge/<?php echo $prev_month_charge; ?>/<?php echo $prev_year_charge; ?>">
                            < Previous month
                            </a>
                            |
                            <strong><?php echo $month_charge_name; ?></strong>
                            |
-                           <a href="<?php echo base_url().$this->session->userdata('lang'); ?>/myaccount/call_charge/charge/<?php echo $month_charge + 1; ?>/<?php echo $year_charge; ?>">Next month ></a>
+                           <a href="<?php echo base_url().$this->session->userdata('lang'); ?>/myaccount/call_charge/charge/<?php echo $next_month_charge; ?>/<?php echo $next_year_charge; ?>">Next month ></a>
                             <a href="">Go to date </a> <input type="text" placeholder="04/2013" class="accdtd" />  <a href="">Go</a>
                         </div>
                 	</div>
@@ -179,13 +179,13 @@
                 	</table>
                        
                         <div class="rightcom rightlink1" style="margin-bottom: 15px">
-                           <a href="<?php echo base_url().$this->session->userdata('lang'); ?>/myaccount/call_charge/call/<?php echo $month_call - 1; ?>/<?php echo $year_call; ?>">
+                           <a href="<?php echo base_url().$this->session->userdata('lang'); ?>/myaccount/call_charge/call/<?php echo $prev_month_call; ?>/<?php echo $prev_year_call; ?>">
                            < Previous month
                            </a>
                            |
                            <strong><?php echo $month_call_name; ?></strong>
                            |
-                           <a href="<?php echo base_url().$this->session->userdata('lang'); ?>/myaccount/call_charge/call/<?php echo $month_call + 1; ?>/<?php echo $year_call; ?>">Next month ></a>
+                           <a href="<?php echo base_url().$this->session->userdata('lang'); ?>/myaccount/call_charge/call/<?php echo $next_month_call; ?>/<?php echo $next_year_call; ?>">Next month ></a>
                             <a href="">Go to date </a> <input type="text" placeholder="04/2013" class="accdtd" />  <a href="">Go</a>
                         </div>
                     </div>
