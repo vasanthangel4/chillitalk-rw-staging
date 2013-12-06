@@ -24,7 +24,7 @@ class Apps extends MY_Controller{
 			
 			$uri3 = 'http://sws.vectone.com/api/CTPMobileSignUp';
 		    
-		  	$params3 = array('Device' 	=> 'android', 
+		  	$params3 = array('Device' 	=> $device, 
 							 'MobileNo'  => $this->session->userdata('prefix_phone_web').$phone_number,
 							 'Country'   => $this->session->userdata('country_name_web'),
 							 'PlanId'    => $this->sesion->userdata('plan_id_web')
@@ -39,25 +39,30 @@ class Apps extends MY_Controller{
 				$this->session->set_userdata('account_id', $result3->AccountId);
 				$this->session->set_userdata('mobile_signup_success','mobile_signup_success');
 				$this->session->set_userdata('mobile_no',$this->session->userdata('prefix_phone_web').$phone_number);
-				$this->session->set_userdata('device', 'android');
-				redirect(base_url().$this->session->userdata('lang').'/apps/android_success/');
+				$this->session->set_userdata('device', $device);
+				$this->session->set_userdata('success_signup','success');
+				if($device == 'android') {
+					redirect(base_url().$this->session->userdata('lang').'/apps/android_success');
+				}else{
+					redirect(base_url().$this->session->userdata('lang').'/apps/iphone_success');
+				}
 				
 				
 			}elseif($result3->ErrCode == '-10') {
 				
-				$this->session->set_userdata('device','android');
+				$this->session->set_userdata('device',$device);
 				$this->session->set_userdata('signup_failed',$result3->ErrMsg);
 				redirect(base_url().$this->session->userdata('lang').'/apps');
 				
 			}elseif($result3->ErrCode == '-11') {
 				
-				$this->session->set_userdata('device','android');
+				$this->session->set_userdata('device',$device);
 				$this->session->set_userdata('signup_failed','Number already registered, please type with another number');
 				redirect(base_url().$this->session->userdata('lang').'/apps');
 				
 			}else{
 				
-				$this->session->set_userdata('device','android');
+				$this->session->set_userdata('device',$device);
 				$this->session->set_userdata('signup_failed',$result3->ErrMsg);
 				redirect(base_url().$this->session->userdata('lang').'/apps');
 			}
@@ -87,8 +92,10 @@ class Apps extends MY_Controller{
 			
 			$uri3 = 'http://sws.vectone.com/api/CTPMobileSignUp';
 		    
-		  	$params3 = array('Device' 	=> 'android', 
+		  	$params3 = array('Device' 	=> $device, 
 							 'MobileNo'  => $this->session->userdata('prefix_phone_web').$phone_number,
+							 'Country'   => $this->session->userdata('country_name_web'),
+							 'PlanId'    => $this->sesion->userdata('plan_id_web')
 							 );
 							
 		  	$this->rest->format('application/json');
@@ -100,30 +107,30 @@ class Apps extends MY_Controller{
 				$this->session->set_userdata('account_id', $result3->AccountId);
 				$this->session->set_userdata('mobile_signup_success','mobile_signup_success');
 				$this->session->set_userdata('mobile_no',$this->session->userdata('prefix_phone_web').$phone_number);
-				$this->session->set_userdata('device', 'android');
-				redirect(base_url().$this->session->userdata('lang').'/apps/android_success/');
+				$this->session->set_userdata('device', $device);
+				//redirect(base_url().$this->session->userdata('lang').'/apps/android_success/');
 				
-				/*$this->session->set_userdata('success_signup','success');
+				$this->session->set_userdata('success_signup','success');
 				if($device == 'android') {
 					redirect(base_url().$this->session->userdata('lang').'/apps/android_success');
 				}else{
 					redirect(base_url().$this->session->userdata('lang').'/apps/iphone_success');
-				}*/
+				}
 			}elseif($result3->ErrCode == '-10') {
 				
-				$this->session->set_userdata('device','android');
+				$this->session->set_userdata('device',$device);
 				$this->session->set_userdata('signup_failed',$result3->ErrMsg);
 				redirect(base_url().$this->session->userdata('lang').'/apps/invalid');
 				
 			}elseif($result3->ErrCode == '-11') {
 				
-				$this->session->set_userdata('device','android');
+				$this->session->set_userdata('device',$device);
 				$this->session->set_userdata('signup_failed','Number already registered, please type with another number');
 				redirect(base_url().$this->session->userdata('lang').'/apps/invalid');
 				
 			}else{
 				
-				$this->session->set_userdata('device','android');
+				$this->session->set_userdata('device',$device);
 				$this->session->set_userdata('signup_failed',$result3->ErrMsg);
 				redirect(base_url().$this->session->userdata('lang').'/apps/invalid');
 			}
