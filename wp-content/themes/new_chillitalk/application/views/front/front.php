@@ -548,17 +548,6 @@ $( ".topupns" ).css({ height: "20px" });
 </script>
 
 <style type="text/css">
-#tim1 + img
-{
-margin:-9px 0px 0px 0px !important;
-}
-#tim2 + img {
-    margin-top: 23px !important;
-}
-#tim4 + img
-{
-margin-top:25px !important;
 
-}
 
 </style>
