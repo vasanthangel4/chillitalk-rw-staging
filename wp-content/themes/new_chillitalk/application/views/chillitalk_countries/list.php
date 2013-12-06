@@ -1,17 +1,21 @@
-<h1>Chillitalk in your country</h1>
-<p>
-You can now call with Chillitalk from any country in the world over 3G or WiFi, with our
-new version 2.0 applications for iPhone, Android and PC!
-<br/><br/>
-In the 50+ countries listed below, you can also use Chillitalk's local numbers to call your loved ones abroad. You use your regular operator for the local call, but the international part is connected by Chillitalk over the internet! Best of all, you can use any mobile or landline when calling with local numbers. When you use our new Chillitalk 2.0 applications, you can even switch from a WiFi or 3G data call to a local number in the middle of a conversation, with our unique new feature, KeepTalking!
-<br/><br/>
-So, drop your inconvenient phone cards and start saving money and time with Chillitalk, calling the way you want.
-         </p>
+<h3><b>Chillitalk in your country</b></h3>
+	<a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/sign_up/" 
+	class="tryus rightcom txtsignup">Sign up now! First call free</a>
 <div class="flagall">
 
+<p>
+The Chillitalk App lets you call from any country in the world at super-low rates using a Wi-Fi or 3G 
+internet connection. Plus, our Chillitalk Local Numbers feature allows you to reach
+friends and family abroad from ANY landline/mobile in the <a href="">50+ countries</a> listed below. 
+Dial your Local Number using your local operator – then dial your international number. 
+Chillitalk will connect you immediately. 
 
+<br/><br/>
+<a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/sign_up/">Sign up</a> to Chillitalk today and make international calls at super-low rates – No more phone cards! No more bad lines! 
+– Just quality calls at cheap rates to any country in the world.
+         </p>
 
-<div class="flagall clearall">
+<div class="flagall clearall firimgtcss">
 <div class="imgflagall">
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/ar.png" alt="ChilliTalk Logo">
 <span>Argentina</span></div>
@@ -24,7 +28,7 @@ So, drop your inconvenient phone cards and start saving money and time with Chil
 <div class="imgflagall">
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/be.png" alt="ChilliTalk Logo">
 <span>Belgium</span></div>
-<div class="imgflagall">
+<div class="imgflagall firimgtcss">
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/br.png" alt="ChilliTalk Logo">
 <span>Brazil</span></div>
 <div class="imgflagall">
@@ -43,7 +47,7 @@ So, drop your inconvenient phone cards and start saving money and time with Chil
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/hr.png" alt="ChilliTalk Logo">
 <span>Croatia
 </span></div>
-<div class="imgflagall">
+<div class="imgflagall firimgtcss">
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/cy.png" alt="ChilliTalk Logo">
 <span>Cyprus
 </span></div>
@@ -63,7 +67,7 @@ So, drop your inconvenient phone cards and start saving money and time with Chil
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/sv.png" alt="ChilliTalk Logo">
 <span>El Salvador
 </span></div>
-<div class="imgflagall">
+<div class="imgflagall firimgtcss">
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/ee.png" alt="ChilliTalk Logo">
 <span>Estonia
 </span></div>
@@ -88,7 +92,7 @@ So, drop your inconvenient phone cards and start saving money and time with Chil
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/de.png" alt="ChilliTalk Logo">
 <span>Germany
 </span></div>
-<div class="imgflagall">
+<div class="imgflagall firimgtcss">
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/gr.png" alt="ChilliTalk Logo">
 <span>Greece
 </span></div>
@@ -106,9 +110,9 @@ So, drop your inconvenient phone cards and start saving money and time with Chil
 </span></div>
 <div class="imgflagall">
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/il.png" alt="ChilliTalk Logo">
-<span>Isreal
+<span>ISRAEL
 </span></div>
-<div class="imgflagall">
+<div class="imgflagall firimgtcss">
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/it.png" alt="ChilliTalk Logo">
 <span>Italy
 </span></div>
@@ -128,7 +132,7 @@ So, drop your inconvenient phone cards and start saving money and time with Chil
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/lu.png" alt="ChilliTalk Logo">
 <span>Luxembourg
 </span></div>
-<div class="imgflagall">
+<div class="imgflagall firimgtcss">
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/mt.png" alt="ChilliTalk Logo">
 <span>Malta
 </span></div>
@@ -148,7 +152,7 @@ So, drop your inconvenient phone cards and start saving money and time with Chil
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/no.png" alt="ChilliTalk Logo">
 <span>Norway
 </span></div>
-<div class="imgflagall">
+<div class="imgflagall firimgtcss">
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/pa.png" alt="ChilliTalk Logo">
 <span>Panama
 </span></div>
@@ -168,7 +172,7 @@ So, drop your inconvenient phone cards and start saving money and time with Chil
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/pr.png" alt="ChilliTalk Logo">
 <span>Puerto Rico
 </span></div>
-<div class="imgflagall">
+<div class="imgflagall firimgtcss">
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/ro.png" alt="ChilliTalk Logo">
 <span>Romania
 </span></div>
@@ -188,7 +192,7 @@ So, drop your inconvenient phone cards and start saving money and time with Chil
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/za.png" alt="ChilliTalk Logo">
 <span>South Africa
 </span></div>
-<div class="imgflagall">
+<div class="imgflagall firimgtcss">
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/es.png" alt="ChilliTalk Logo">
 <span>Spain
 </span></div>
@@ -208,15 +212,31 @@ So, drop your inconvenient phone cards and start saving money and time with Chil
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/us.png" alt="ChilliTalk Logo">
 <span>United States
 </span></div>
-<div class="imgflagall">
+<div class="imgflagall firimgtcss">
 <img src="<?php echo get_template_directory_uri(); ?>/img/cflags/ve.png" alt="ChilliTalk Logo">
 <span>Venezuela
 </span></div>
 
+
+
+
 </div>
 </div>
 
 
+<div class="flagalttxt">
+<p>
+<b>CHEAP INTERNATIONAL CALLS & SMS </b>– Great savings with Chillitalk <br/><br/>
+<b> CALL FREE</b>  – To any Chillitalk user worldwide<br/><br/>
+
+<b>CHOICE </b> – Use minutes or data through WiFi, 3G or Local Numbers<br/><br/>
+<b>ANY DEVICE</b>  – Use the Chillitalk App for iPhone, Android, Windows Phone & PC. 
+You can also use any mobile/landline to make cheap international calls with Chillitalk<br/><br/>
+ <b>VOICE QUALITY</b>  – Crystal clear calls bring you closer to friends and family<br/><br/>
+<b>NO HIDDEN FEES</b>  – Pay super-cheap Chillitalk rates ONLY! 
+</p>
+
+</div>
 
 
 

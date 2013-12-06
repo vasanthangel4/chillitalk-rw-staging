@@ -13,4 +13,19 @@ $(document).ready(function(){
 		$(this).addClass("normalactive");
 		}
 	});
+	$('ul.childNav').hide();
+	$("li.bundle").mouseover(function(){
+    $('ul.childNav').show();
+	});
+    $("li.bundle").mouseout(function(){
+    $("ul.childNav").hide();
+});
+	$("li.bundle.normalactive").mouseover(function(){
+    $('ul.childNav').show();
+	});
+    $("li.bundle.normalactive").mouseout(function(){
+    $("ul.childNav").hide();
+});
+	
+
 })

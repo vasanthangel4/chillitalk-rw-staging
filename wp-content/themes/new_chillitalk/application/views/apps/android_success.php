@@ -1,12 +1,8 @@
-
 <!--main logo section  start here-->
+   <div class="tetxvbox">
     <section class="earnm">
-        <h3>cheap calls from any device</h3>
-        <p class="commfrt">
-            it's easy to make cheap international calls from any device with Chillitalk. download
-            our app for iPhone,iPad, android or PC, or sign-up using your landline or mobile
-            number and use our special local numbers from over 60 countries.
-        </p>
+      <h1 class="tsddefe2">Get started with Chillitalk</h1>
+       
     </section>
     
     <section class="apps earnm">
@@ -32,21 +28,26 @@
               
               <div id="iphone-android">
               
-              <h3>2. Enter your phone number and we will send you a text message containing your Login details and a link to the Google Play Store</h3>
+           
                   
               <article class="earnm">
                 <div class="greenblean">
-                  <h1 id="h1">
-                  Thank you for Signing Up to ChilliTalk!</h1>
-                  <ul>
-                    <li><span>   Click on the Google Play Store badge below to download the app. We’ve
-                    also sent you a link via SMS. </span>
-                    <li><span>
-                     <a href="#" class="underline">  Install the application</a> and use your <a href="#">Chillitalk
-                    PIN</a> to   <a href="#">log in</a>.<br />
-                    (If you don’t receive a PIN to your phone, follow the instructions in the application
-                    to request a new ChilliTalk PIN) </span> </li>
-                  </ul>
+                 <h1 id="h1">
+Thank you for Signing Up to ChilliTalk!</h1>
+
+<ul>
+<p style="margin: 20px 0px 10px -20px; padding: 0px; text-indent: 0px; font-size: 14px;" class="leftcom">An SMS has
+been sent to your phone with a <b>download link</b> and your <b>Chillitalk PIN</b>.</p>
+<br><br>
+<li><span>   Click on the App Store badge below to download the app. We’ve
+also sent you a link via SMS. </span></li>
+<li><span>
+<a class="underline" href="https://play.google.com/store/apps/details?id=com.mundio.chillitalk&hl=en_GB"> 
+Install the application</a> and use your <a href="#">Chillitalk
+PIN</a> to   <a href="http://chillitalk.co.uk/en/login_member/">log in</a>.<br><br>
+<span style="margin-left:-20px;">(If you don’t receive a PIN to your phone, follow the instructions in the application
+to request a new ChilliTalk PIN) </span></span> </li>
+</ul>
                 </div>
               </article>
               
@@ -60,7 +61,7 @@
 
       </div>
   </div>
-  
+   </div>
   <script type="text/javascript">
 	$(document).ready(function() {
         //$('#iphone-android').hide();

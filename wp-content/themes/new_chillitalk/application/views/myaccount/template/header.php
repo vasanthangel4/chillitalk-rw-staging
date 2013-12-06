@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1, maximum-scale=1" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Chillitalk | Cheap international call made easy</title>
     <meta name="description" content="Chillitalk is the low-cost way to call abroad. No SIM change, no PIN, no long 
     numbers. Just ch eap international calls from your mobile or landline." />
@@ -19,8 +19,10 @@
     <link href="<?php echo get_template_directory_uri(); ?>/css/facelift.css" rel="stylesheet" type="text/css">
     
 	<?php } ?>
-<link href="<?php bloginfo('stylesheet_url');?>" rel="stylesheet">
-<link href="<?php echo get_template_directory_uri(); ?>/css/colorbox.css" rel="stylesheet" type="text/css">
+    <link href="<?php bloginfo('stylesheet_url');?>" rel="stylesheet">
+    <link href="<?php echo get_template_directory_uri(); ?>/css/colorbox.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo get_template_directory_uri(); ?>/css/datepicker.css" rel="stylesheet" type="text/css">
+
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon.ico" />
     <!--JS-->
 
@@ -40,9 +42,10 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/datatables/media/js/jquery.dataTables.js"></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/dt_js.js"></script>
-
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/datatables/media/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/dt_js.js"></script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/bootstrap-datepicker.js"></script>
+    
     <script type="text/javascript">
         $(document).ready(function () { 
 		$('#radios1').imageradio({ hidden: false }); 
@@ -57,19 +60,27 @@
 	
   
   </head>
-  <body>
-     <header class="cstxts">
-      <div class="mainbgcolor">
+   <body>
+
+     <!--main content start here-->
+    <div class="mainbgcolor">
   
     <div id="maincontent">
     
-             <nav class="maincomon">
+     
+        
+        <?php if($this->uri->segment('2') == '') { ?>
+        
+        <!--nav section  start here-->
+        
+        
+        <nav class="maincomon">
         
         
         
         
               <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>" class="logo">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/innerlogo.png" alt="ChilliTalk Logo" />
+                <img src="<?php echo get_template_directory_uri(); ?>/img/my_logo.png" alt="ChilliTalk Logo" />
             </a>
        
         <div class="mainnewlook tsfsded">
@@ -86,7 +97,7 @@
                 <?php if($this->session->userdata('firstname') != '') { ?>
                 
             
-                    Welcome <?php echo $this->session->userdata('firstname'); ?>
+                    welcome <span><?php echo $this->session->userdata('firstname'); ?></span>
                 
                 
 				<?php } ?>
@@ -106,29 +117,29 @@
                 </script>
               
               <span class="leftcom fbld"></span>
-    <select  class="leftcom" onChange="window.location.href='<?php echo base_url(); ?>'+$(this).val()+'<?php echo substr($this->uri->uri_string(),2); ?>'">
+    <select  class="slectdt leftcom none" onChange="window.location.href='<?php echo base_url(); ?>'+$(this).val()+'<?php echo substr($this->uri->uri_string(),2); ?>'">
     
     <?php if($this->uri->segment('1') == 'en') { ?>
-    <option  value="en" selected>English </option>
+    <option  value="en" class="uk">English </option>
     <?php }else{ ?>
-    <option  value="en">English </option>
+    <option  value="en" class="uk">English </option>
     <?php } ?>
  
 	 
     </select>
                 
-
+  <section class="topupse none"> <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/top_up/"><?php echo lang('header.Topup'); ?></a> </section>
                   
-               <?php if($this->session->userdata('firstname') != '') { ?>
-                 <section class="leftcom">
-                <a  href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/dashboard/logout" onClick="return confirm('Are you sure want to logout ?')" class="leftcom underline tctdcss">Log Out</a>
+                      <?php if($this->session->userdata('firstname') != '') { ?>
+                 <section class="rightcom">
+                <a  href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/dashboard/logout" onClick="return confirm('Are you sure want to logout ?')" class="leftcom underline tctdcss">log out</a>
              </section>   
                <?php } ?>
                
                 
-                  <section class="topupse"> <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/top_up/"><?php echo lang('header.Topup'); ?></a> </section>
+                
                   
-               <section class="logine">    
+               <section class="logine none">    
                <?php if($this->session->userdata('username') == '') { ?>
                   
                     
@@ -168,7 +179,7 @@
             </div>    
      
         <div class="mainnewlook ">
-            <ul class="txtgreen rightcom">
+            <ul class="txtgreen rightcom none">
             	<!--<li><a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/features/" title="features"><?php echo lang('header.features'); ?></a> </li>-->
                 
                 <li><a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/rates/" title="rates">
@@ -213,20 +224,49 @@
            </div> 
             <div id="maincontent">
             <h1 class="tsddefe">
-
+         cheap international calls made easy         
         </h1>
              <div id="maincontent">
+        <a class="toplink" style="display: block;"></a>
         
-        <?php if($this->uri->segment('2') == '') { ?>
+		<!--main logo section  start here-->
+     <!--   <header class="maincomon mainlogo leftcom">
+         <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>"> <img src="<?php echo get_template_directory_uri(); ?>/img/world.jpg" alt="Chillitalk" /></a>
+          <div class="mainlogo1 leftcom">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Chillitalk" />
+           
+            
+            <?php if($this->lang->lang() == 'fr') { ?>
+   <h1 style="width:535px"><?php echo lang('header.first'); ?></h1>
+    <?php } 
+ elseif($this->lang->lang() == 'de') { ?> 
+   <h1 style="width:535px"><?php echo lang('header.first'); ?></h1>
+    <?php }
+	elseif($this->lang->lang() == 'pl') { ?> 
+   <h1 style="width:535px"><?php echo lang('header.first'); ?></h1>
+    <?php }
+	 elseif($this->lang->lang() == 'dk') { ?> 
+   <h1 style="width:623px"><?php echo lang('header.first'); ?></h1>
+    <?php }
+	
+	else{ ?>
+  	 <h1><?php echo lang('header.first'); ?></h1>
+    <?php } ?>
+            
+          </div>
+        </header>-->
+        <!--main logo section  end here-->
         
+    	<?php }else{ ?>
+		
         <!--nav section  start here-->
-          <nav class="maincomon">
+           <nav class="maincomon">
         
         
         
         
               <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>" class="logo">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/innerlogo.png" alt="ChilliTalk Logo" />
+                <img src="<?php echo get_template_directory_uri(); ?>/img/my_logo.png" alt="ChilliTalk Logo" />
             </a>
        
         <div class="mainnewlook tsfsded">
@@ -243,7 +283,7 @@
                 <?php if($this->session->userdata('firstname') != '') { ?>
                 
             
-                    Welcome <?php echo $this->session->userdata('firstname'); ?>
+                    welcome <span><?php echo $this->session->userdata('firstname'); ?></span>
                 
                 
 				<?php } ?>
@@ -263,7 +303,7 @@
                 </script>
               
               <span class="leftcom fbld"></span>
-    <select  class="leftcom" onChange="window.location.href='<?php echo base_url(); ?>'+$(this).val()+'<?php echo substr($this->uri->uri_string(),2); ?>'">
+    <select  class="slectdt leftcom none" onChange="window.location.href='<?php echo base_url(); ?>'+$(this).val()+'<?php echo substr($this->uri->uri_string(),2); ?>'">
     
     <?php if($this->uri->segment('1') == 'en') { ?>
     <option  value="en" selected>English </option>
@@ -275,17 +315,19 @@
     </select>
                 
 
+                 <section class="topupse none"> <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/top_up/"><?php echo lang('header.Topup'); ?></a> </section>
+                
                   
                <?php if($this->session->userdata('firstname') != '') { ?>
-                 <section class="leftcom">
-                <a  href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/dashboard/logout" onClick="return confirm('Are you sure want to logout ?')" class="leftcom underline tctdcss">Log Out</a>
+                 <section class="rightcom">
+                <a  href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/dashboard/logout" onClick="return confirm('Are you sure want to logout ?')" class="leftcom underline tctdcss">log out</a>
              </section>   
                <?php } ?>
                
                 
-                  <section class="topupse"> <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/top_up/"><?php echo lang('header.Topup'); ?></a> </section>
+                 
                   
-               <section class="logine">    
+               <section class="logine none">    
                <?php if($this->session->userdata('username') == '') { ?>
                   
                     
@@ -310,7 +352,7 @@
               
                 <?php }else{ ?>
                 
-                 <section  class="logine1">
+                 <section  class="logine1 none">
                     <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/dashboard" title="my account">
                       <?php echo lang('header.myaccount'); ?>
                     </a>   
@@ -325,7 +367,7 @@
             </div>    
      
         <div class="mainnewlook ">
-            <ul class="txtgreen rightcom">
+            <ul class="txtgreen rightcom none">
             	<!--<li><a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/features/" title="features"><?php echo lang('header.features'); ?></a> </li>-->
                 
                 <li><a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/rates/" title="rates">
@@ -372,5 +414,9 @@
             <h1 class="tsddefe1">
       
         </h1>
-             <div id="maincontent">
+        
+          <!--nav section  end here-->
+        
         <?php } ?>
+		
+

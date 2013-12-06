@@ -879,9 +879,9 @@ ul.footer1
     
 }
 
-.rates2 .tryus
-{
-    margin:-10px 0 10px 40px;
+.rates2 .tryus {
+    margin: -3px 37px 10px 17px;
+    text-indent: 9px !important;
 }
  
 .rates2 p
@@ -1236,7 +1236,7 @@ option
 {
     margin:20px 0px 20px 0px;
 }
-.childNav,.control-currency,.none
+.control-currency,.none
 {
     display:none !important;
 }
@@ -1873,11 +1873,13 @@ border:1px solid #fff !important;
   
     background-image: url("img/signupin.png") !important;
 	font-family:Arial, Helvetica, sans-serif;
+	background-repeat:no-repeat !important;
   
 }
 .back  {
   
     background-image: url("img/back.jpg") !important;
+		background-repeat:no-repeat !important;
 
   
 }
@@ -2335,14 +2337,7 @@ text-indent:9px;
 margin-top:-17px;
 }
 
-#radios1 img:nth-last-child(3),#tim2 + img
-{
-margin-top:7px;
-}
-#radios1 img:nth-last-child(1)
-{
-margin-top:6px;
-}
+
 .whychtxt section:nth-child(2),.whychtxt section:nth-child(2) h3,.whychtxt section:nth-child(2) p
 {
 width:700px !important;
@@ -2461,7 +2456,7 @@ visibility:hidden
 }
 .slectdt + .leftcom, .arrow + .leftcom, .slectdt + .underline, .tctdcss {
     margin-left: 6px !important;
-    margin-right: 0 !important;
+    margin-right: 20px !important;
 }
 .slectdt + .underline,.tctdcss
 {
@@ -2538,7 +2533,7 @@ background-image: url("img/au.PNG");
 .imgabb0
 {
 background-image: url("img/android1.png");
-height: 377px;
+height: 287px;
 
 }
 
@@ -2550,7 +2545,7 @@ background-image:none;
 .imgabb
 {
  background-image: url("img/android12.png");
-  height: 385px;
+  height: 296px;
 }
 
 .imgabb1
@@ -2650,7 +2645,7 @@ color:#026aa1 !important;
 {
  border-bottom: 1px solid #026AA1;
     float: left;
-    height: 196px;
+    height: 194px;
     width: 909px;
 	display:inline;
 	margin-bottom:20px;
@@ -2754,10 +2749,7 @@ height:31px;
 margin-right:4px !important;
 line-height:25px !important;
 }
-#tim1 + img
-{
- margin-top:-11px;
-}
+
 	  .loginsd,.loginsd1
  {
      background-color: #6EA600 !important;
@@ -3039,7 +3031,7 @@ width:120px;
 border-right:0px;
 }
 
-.dropcomon  .txtchangec
+.dropcomon  .txtchangec,.txtwelcome span,.rightcunt2 .ttxtblue,.comabout h4
 {
 color:#016ba5 !important;
 
@@ -3268,7 +3260,7 @@ color:#666666;
     font-size: 16px;
     height: 26px;
     line-height: 20px !important;
-    margin-left: 96px;
+    margin-left: 68px;
     margin-top: 3px;
     padding: 0;
     width: 103px;
@@ -3347,11 +3339,13 @@ text-indent:20px;
 }
 .txtwelcome
 {
- float: left;
- height: 30px;
-  line-height: 26px;
-  margin-right: 14px;
-  min-width: 100px;
+    color: #6EA600 !important;
+    float: left;
+    font-weight: bold;
+    height: 30px;
+    line-height: 26px;
+    margin-right: 14px;
+    min-width: 100px;
 }
 ul.bgimgtxs
 {
@@ -3438,7 +3432,7 @@ width:200px  !important;
     font-size: 17px;
     margin-left: 8px;
     margin-top: -6px;
-    width: 1003px;
+    clear:both;
     height:20px;
 }
 #change_country
@@ -3507,14 +3501,14 @@ float: left;
 {
 float:left;
 display:inline; 
-width:800px;
+width:700px;
 }
 .imgflagall
 {
 float:left;
 display:inline;
 width:135px;
-margin:10px 23px 0px 0px;
+margin:10px 14px 0 0;
 
 }
 .imgflagall span
@@ -3552,6 +3546,203 @@ float:left;
 display:inline;
 line-height:25px;
 margin-left:22px;
+}
+#vasanth .helpText .message,#vasanth  .helpTextAlt .message
+{
+  background: url('http://chillitalk.co.uk/wp-content/themes/chillitalk/img/uk.png') !important;
+  width:200px !important;
+  height:100px !important;
+}
+.formRow
+{
+    float: right;
+    margin: 0 -25px !important;
+    width: 170px !important;
+}
+	
+
+.pace
+{
+display:none !important;
+	
+}
+.vasatxtz   h3 {
+    font-size: 14px;
+    width: 329px;
+    text-ndent:5px;
+}
+
+ .vasatxtz   h3:nth-last-child(1)
+ {
+ width:117px;
+ }
+ .vasatxtz,.vasatxtz1  
+ {
+ width:450px;
+ float:left;
+display:inline;
+ }
+.accessntxt
+{
+float:left;
+display:inline;
+width:920px;
+}
+.varig
+{
+margin-right:5px;
+}
+.vasatxtz img
+{
+    display: inline;
+    float: left;
+    margin-left: 13px;
+    margin-top: 5px;
+}
+.vasatxtz h3
+{
+line-height:20px !important;
+}
+.red
+{
+color:#E52600 !important;	
+	
+}
+.cspter
+{
+font-size:16px;	
+}
+
+.vasatxtz1 div:nth-child(2n) h3 {
+    background-color: #F2EEE6;
+    height: 21px;
+}
+.vasatxtz1 div:nth-child(odd) h3 {
+    background-color: #fff;
+    height: 21px;
+}
+.vasatxtz1 div:nth-child(2n+1) h3 {
+  margin-top:0px;
+  margin-bottom:0px;
+    height: 21px;
+}
+
+.firimgtcss
+{
+	margin-left:0px !important;
+}
+.imgflagall.firimgtcss
+{
+margin-left:0px !important;
+margin-right:0px !important;
+
+
+}
+.imgflagall.firimgtcss span,.imgflagall.firimgtcss
+{
+width:94px;
+}
+.flagalttxt
+{
+float:left;
+display:inline;
+width:200px;
+margin-left:30px;
+}
+.flagalttxt p
+{
+    background: none repeat scroll 0 0 #F2EEE6;
+    display: inline;
+    float: left;
+    padding: 10px 10px 6px;
+    text-align: left !important;
+    width: 254px;
+}
+.txtsignup
+{
+    margin: -36px -15px 21px 0 !important;
+    text-indent: 10px !important;
+}
+.comabout
+{
+background-image:url('img/aboutus.jpg') !important;
+
+   background-position: right center;
+    background-repeat: no-repeat;
+}
+.comabout p
+{
+width:583px;
+float:left;
+display:inline;
+}
+.comabout h4
+{
+margin:0px 0px 10px 0px;
+}
+.txtgreen li ul.childNav li:nth-child(1) a {
+    list-style: none outside none;
+    margin: 7px 0 0 -84px;
+    padding: 0 3px 0 5px;
+    position: absolute;
+    top: 4.5em;
+	
+}
+.txtgreen li ul.childNav li:nth-child(2) a {
+    list-style: none outside none;
+    margin: 7px 0 0 -84px;
+    padding: 0 3px 0 5px;
+    position: absolute;
+    top: 6.5em;
+	
+}
+.txtgreen li.normalactive:nth-child(3) a,.txtgreen li:nth-child(3) a
+{
+background-color:#6EA600 !important;
+color:#fff  !important;
+height:24px;
+}
+
+.txtgreen li ul.childNav  a:hover
+{
+background-color:#fff !important;
+color:#6EA600  !important;
+width:85px;
+height:35px   !important;
+}
+.txtgreen li ul.childNav  a
+{
+background-color:#6EA600 !important;
+color:#fff  !important;
+width:85px;
+height:35px  !important;
+}
+.litxts
+{
+display: inline; 
+padding: 0px;
+width: 700px; 
+margin: 12px 0 4px -29px;
+}
+.tryus.blue1.leftcom
+{
+background-image:url("img/green.png") !important;
+}
+.tryus.plus.leftcom
+{
+background-image:url("img/plus.png") !important;
+}
+.tryus.minus.leftcom
+{
+background-image:url("img/minus.png") !important;
+}
+ul#toggleText
+{
+padding-left:20px !important;
+}
+.tryus.rightcom.txtsignup.txts
+{
+margin:17px -14px 10px 0 !important;
 }
 #vasanth .helpText .message,#vasanth  .helpTextAlt .message
 {
@@ -3638,4 +3829,24 @@ margin-right: 30px !important;
 .spar
 {
 float:none !important;
+}
+
+
+#tetxvbox  input[type="text"],#tetxvbox  input[type="email"],#tetxvbox input[type="password"]
+{
+width:217px !important;
+}
+
+.txtbndles
+{
+ font-size: 30px;
+ margin: 0px 0px 10px ! important;
+}
+#tetxvbox input[type="text"].ukflg {
+     width: 58px ! important;
+}
+#tetxvbox .ukflg + input[type="text"] 
+{
+    margin-left: -4px;
+    width: 139px !important;
 }
