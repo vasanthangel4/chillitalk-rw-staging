@@ -902,6 +902,9 @@
               </form>
           </div>
         </section>
+                  </div>
+        </section>
+
        
            <div id="iphone">
 
@@ -1749,8 +1752,6 @@
                 
                   <button type="submit" class="signupimg leftcaed">sign-up</button>
               </form>
-          </div>
-        </section>
        </div>
               
     
