@@ -74,13 +74,11 @@ class Top_up extends MY_Controller{
 		$valid = $this->form_validation;
 		
 		$valid->set_rules('first_name','First Name', 'required');
-		$valid->set_rules('last_name','Last Name', 'required');
 		$valid->set_rules('auto_recharge','Auto Recharge', 'required');
 		$valid->set_rules('credit_card_number','Credit card number', 'required|numeric|min_length[5]');
 		$valid->set_rules('month','Exp Month', 'required|numeric|exact_length[2]');
 		$valid->set_rules('year','Year', 'required');
 		$valid->set_rules('cvv','CVV', 'required');
-		$valid->set_rules('billing_phone','Billing Phone No', 'required|numeric|min_length[4]');
 		$valid->set_rules('country','Country', 'required');
 		$valid->set_rules('address','Address', 'required');
 		$valid->set_rules('zip','ZIP', 'required');
@@ -125,7 +123,7 @@ class Top_up extends MY_Controller{
 								'amount'  => $amount,
 								'autoTopup' => true,
 								'bypass3DS' => true,
-								'state' => $state,
+								'state' => '',
 								'ipAddr' => $this->input->ip_address()
 								);
 								
@@ -302,7 +300,6 @@ class Top_up extends MY_Controller{
 		$valid = $this->form_validation;
 		
 		$valid->set_rules('first_name','First Name', 'required');
-		$valid->set_rules('last_name','Last Name', 'required');
 		$valid->set_rules('auto_recharge','Auto Recharge', 'required');
 		$valid->set_rules('credit_card_number','Credit card number', 'required|numeric|min_length[5]');
 		$valid->set_rules('month','Exp Month', 'required|numeric|exact_length[2]');
@@ -342,7 +339,7 @@ class Top_up extends MY_Controller{
 								'cvv' => $cvv,
 								'expDate' => $year.$month,
 								'firstName' => $first_name,
-								'lastName' => $last_name,
+								'lastName' => $first_name,
 								'streetName' => $address,
 								'city' => $city,
 								'postCode' => $zip,
@@ -351,7 +348,7 @@ class Top_up extends MY_Controller{
 								'amount'  => $amount,
 								'autoTopup' => true,
 								'bypass3DS' => true,
-								'state' => $state,
+								'state' => '',
 								'ipAddr' => $this->input->ip_address()
 								);
 								
