@@ -50,7 +50,7 @@
                 </p>
                 <div class="secbutton commfrt">
                     <div class="signup green">
-                        <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/dashboard">OK</a>
+                        <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/sign_up/welcome">OK</a>
                     </div>
                     
                     <div class="signup green">

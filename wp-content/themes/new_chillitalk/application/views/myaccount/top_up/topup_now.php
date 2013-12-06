@@ -14,8 +14,7 @@
         
       
         
-                </div>  
-                <div class="clearfix"></div>     
+                </div>     
                  <hr/>  
               
            <?php echo lang('topup.third'); ?>     
@@ -43,9 +42,8 @@ $( ".leftmyaccount" ).css({height: "700px" });
 </script>
 
 <style type="text/css">
-.topupse a {
-    background-color: #6EA600;
-    color: #FFFFFF !important;
-}
+.topupns a {
+    border:1px solid #6ea600 !important;
+	}
 
 </style>

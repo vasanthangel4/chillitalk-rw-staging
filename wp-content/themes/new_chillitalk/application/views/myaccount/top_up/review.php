@@ -29,6 +29,14 @@
 	</script>  
 
 
+
+<style>
+#colorbox
+{
+left: 190px !important;
+margin-top: 60px;
+}
+    </style>
 	
 	
   
@@ -40,59 +48,32 @@
             <section class="bgmobile">
                 <div class="greenblean">
                     <h1 id="h1">
-                        Your transaction has been successfully completed</h1>
+                       Your order will be processed shortly</h1>
                 </div>
+                
+                
                 <p class="rightcunt2">
-                    &nbsp;&nbsp;<h2 style="margin-left:20px;">Details</h2>
-                    
-                    <table class="table table-hover" style="margin-left:38px">
-                    	<tr>
-                        	<th style="text-align:left">Ref Code</th>
-                            <td><?php echo $this->session->userdata('ref_code_card1'); ?></td>
-                        </tr>
-                    	<tr>
-                        	<th style="text-align:left">Amount of credit</th>
-                            <td><?php echo $this->session->userdata('amount_card1'); ?></td>
-                        </tr>
-                        <tr>
-                        	<th style="text-align:left">Previous Balance</th>
-                            <td><?php echo $this->session->userdata('prev_bal_card1'); ?></td>
-                        </tr>
-                        <tr>
-                        	<th style="text-align:left">Current Balance</th>
-                            <td><?php echo $this->session->userdata('total_bal'); ?></td>
-                        </tr>
-                    </table>
-                    
-                    <br/>
-                    <br/>
+                
+                   
                     <strong>
                     <div class="span12" style="padding:20px;margin-left:20px">
-                    Thank you! Your payment has been successful.
-                    <br/>
-					Please allow up to 15 minutes for your payment to appear in your account.
+                    It should be not be more than 30 minutes for the process 
+                    but sometime it may take up to 24 hours. Thank you for your patience.
+                    
+					
 					</div>
                     </strong>
+                   
                 </p>
                     
                 <div class="secbutton commfrt">
                     <div class="signup green">
-                        <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/sign_up/welcome">OK</a>
+                        <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/dashboard">Go to My Account </a>
                     </div>
                 </div>
             </section>
         </div>
     </div>
-    <style type="text/css">
-.topupns a {
-    background-image: url(  "http://mundio-test.azurewebsites.net/wp-content/themes/new_chillitalk/img/topupnew.png") !important;
-    height: 30px !important;
-    line-height: 26px;
-    margin-top: -5px;
-    text-indent: -18px !important;
-    width: 102px !important;
-}
-
-</style>
+    
 </body>
 </html>

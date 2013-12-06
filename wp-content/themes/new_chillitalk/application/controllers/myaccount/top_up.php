@@ -101,9 +101,9 @@ class Top_up extends MY_Controller{
 		$state = $this->input->post('state');
 		
 		if($valid->run()) {
-			$this->recaptcha->recaptcha_check_answer();
+			/*$this->recaptcha->recaptcha_check_answer();
 			
-			if($this->recaptcha->getIsValid()) {
+			if($this->recaptcha->getIsValid()) {*/
 				
 				$uri_card = 'http://sws.vectone.com/api/CTACCTopupStep1';
 			  
@@ -159,6 +159,10 @@ class Top_up extends MY_Controller{
 					$this->session->set_userdata('current_balance', $result_process_card->afterBal);
 					redirect(base_url().$this->session->userdata('lang').'/myaccount/top_up/success');
 					*/
+				}elseif($result_card->errCode == '0' && $result_card->Decision == 'REVIEW') {
+					
+					$this->session->set_userdata('review_on','review_on');
+					redirect(base_url().'/myaccount/top_up/review/');
 				}else{
 					
 					$this->session->set_userdata('failed_credit_card','failed');
@@ -167,12 +171,12 @@ class Top_up extends MY_Controller{
 					redirect(base_url().$this->session->userdata('lang').'/myaccount/top_up/failed');
 				}
 			
-			}else{
+			/*}else{
 				
 			    $this->session->set_flashdata('captcha_error','incorrect captcha');
 				
 				
-			}
+			}*/
 		}
 			
 		
@@ -326,9 +330,9 @@ class Top_up extends MY_Controller{
 		
 		if($valid->run()) {
 			
-			$this->recaptcha->recaptcha_check_answer();
+			/*$this->recaptcha->recaptcha_check_answer();
 			
-			if($this->recaptcha->getIsValid()) {
+			if($this->recaptcha->getIsValid()) {*/
 				
 				$uri_card1 = 'http://sws.vectone.com/api/CTACCTopupStep1';
 			  
@@ -383,6 +387,11 @@ class Top_up extends MY_Controller{
 					$this->session->set_userdata('prev_bal_card1', $this->session->userdata('balance'));
 	*/				
 					redirect(base_url().$this->session->userdata('lang').'/myaccount/top_up/success_alone');
+				}elseif($result_card1->errCode == '0' && $result_card1->Decision == 'REVIEW') {
+					
+					$this->session->set_userdata('review_on','review_on');
+					redirect(base_url().'/myaccount/top_up/review/');
+					
 				}else{
 					
 					$this->session->set_userdata('failed_credit_card_alone','failed');
@@ -391,11 +400,11 @@ class Top_up extends MY_Controller{
 					redirect(base_url().$this->session->userdata('lang').'/myaccount/top_up/failed_alone');
 				}
 				
-			}else{
+			/*}else{
 								
 			    $this->session->set_flashdata('captcha_error','incorrect captcha');
 				
-			}
+			}*/
 			
 		}
 		
@@ -511,6 +520,121 @@ class Top_up extends MY_Controller{
 		$this->load->view('myaccount/top_up/failed_alone',$data);
 		
 		
+	}
+	
+	public function existing_creditcard() {
+		
+		header("HTTP/1.1 200 OK");
+		
+		$valid = $this->form_validation;
+		
+		$valid->set_rules('cvv2','CVV', 'required');
+		
+		$cvv = $this->input->post('cvv2');
+		$amount = $this->input->post('amount2');
+		
+		if($valid->run()) {
+			
+			/*$this->recaptcha->recaptcha_check_answer();
+			
+			if($this->recaptcha->getIsValid()) {*/
+				
+				$uri_card = 'http://sws.vectone.com/api/CTACCTopupExisting';
+		  
+				$params_card = array('siteCode' => $this->session->userdata('site_code_web'), 
+									 'appCode' => $this->session->userdata('app_code_web'),
+									 'accountId' => $this->session->userdata('account_id'),
+									 'ccNo' => $this->session->userdata('cvv'),
+									 'cvv' => $cvv,
+									 'amount' => $amount,
+									 'autoTopup' => true
+									 );
+								
+				
+				$this->rest->format('application/json');
+			  
+				$result_card = $this->rest->post($uri_card, $params_card);
+				
+				//print_r($result);
+				
+				if($result_card->errCode == '0' || $result_card->reasonCode == 475) {
+				
+						
+					$this->session->set_userdata('success_credit_card','success');
+					$this->session->set_userdata('ccno_card', $credit_card_number);
+					$this->session->set_userdata('cvv_card', $cvv);
+					$this->session->set_userdata('exp_date_card', $year.$month);
+					$this->session->set_userdata('first_card', $first_name);
+					$this->session->set_userdata('last_card', $last_name);
+					$this->session->set_userdata('street_card', $address);
+					$this->session->set_userdata('city_card', $city);
+					$this->session->set_userdata('post_code_card', $zip);
+					$this->session->set_userdata('country_card', $country);
+					$this->session->set_userdata('auto_topup_card', $auto_recharge);
+					$this->session->set_userdata('amount_card',$amount);
+					$this->session->set_userdata('acs_url_card',$result_card->acsURL);
+					$this->session->set_userdata('pareq_card',$result_card->paReq);
+					$this->session->set_userdata('ref_code_card',$result_card->merchantRefCode);
+					
+					//redirect(base_url().'/myaccount/top_up/form3ds/');
+					if($this->session->userdata('auto_topup_card') == 'false') {
+						$uri_setting = 'http://sws.vectone.com/api/CTPAutoTopupSetting';
+									
+						$param_setting = array("TopupSettingStep" => 1,
+															  "SubscriptionID" => $this->session->userdata('subc_id'),
+															  "AccountID" => $this->session->userdata('account_id'),
+															  "Currency" => $this->session->userdata('currency_web'),
+															  "Amount" => '',
+															  "LastOrderId" => '',
+															  "MinimumLevel" => ''
+															  );
+													  
+						$this->rest->format('application/json');
+						$result_setting = $this->rest->post($uri_setting, $param_setting);
+					}
+				
+					$this->session->set_userdata('success_credit_card','success_credit_card');
+					$this->session->set_userdata('prev_bal_card', $this->session->userdata('balance'));
+					$this->session->set_userdata('current_balance', $result_process_card->afterBal);
+					redirect(base_url().$this->session->userdata('lang').'/myaccount/top_up/success');
+				
+				}elseif($result_card->errCode == '0' && $result_card->Decision == 'REVIEW') {
+					
+					$this->session->set_userdata('review_on','review_on');
+					redirect(base_url().'/myaccount/top_up/review/');
+				
+				}else{
+					
+					$this->session->set_userdata('failed_credit_card','failed');
+					
+					$this->session->set_userdata('ref_code_card',$result_card->merchantRefCode);
+					redirect(base_url().$this->session->userdata('lang').'/myaccount/top_up/failed');
+				}
+				
+			/*}else{
+				
+			    $this->session->set_flashdata('captcha_error','incorrect captcha');
+				
+				
+			}*/
+			
+			
+			
+		}
+		
+		$uri_amount = 'http://sws.vectone.com/api/CTPCCTopupAvlCredit?country='.$this->session->userdata('country_code_web');
+		$this->rest->format('application/json');
+		  
+		$amount = $this->rest->get($uri_amount);
+
+	    $this->lang->load('myaccount/add');
+		$data = array('title' => 'Add Credit Card',
+					  'isi'   => 'top_up/add',
+					  'amount' => $amount,
+					  'captcha' => $this->recaptcha->recaptcha_get_html()
+					  );
+		
+		$this->load->view('myaccount/template/wrapper',$data);
 	}
 	
 	

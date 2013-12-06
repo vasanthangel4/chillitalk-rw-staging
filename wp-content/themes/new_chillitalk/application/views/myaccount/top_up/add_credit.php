@@ -70,7 +70,7 @@
               <select name="amount" id="amount" required>
                   <option value=""><?php echo lang('add.Selectamount'); ?></option>
                   <?php foreach($amount->List as $val) { ?>
-                  <option value="<?php echo $val->Amount; ?>"><?php echo $this->session->userdata('currency_symbol_web'); ?> <?php echo $val->Amount; ?></option>
+                  <option value="<?php echo $val->Amount; ?>"><?php echo $this->config->item('currency_symbol_web'); ?> <?php echo $val->Amount; ?></option>
                   <?php } ?>
               </select>
           </div>
@@ -170,7 +170,7 @@
               <div id="text_topup"></div></label>
           </div>
           
-          <div class="rightcunt">
+         <!-- <div class="rightcunt">
                    
                           <label>Captcha</label>
                           <label>
@@ -184,7 +184,7 @@
                                   </span>
                               </label>
                           <?php } ?>
-                    </div>
+                    </div>-->
           
           <div class="secbutton commfrt">
               <p><?php echo lang('add.Terms'); ?>
@@ -211,10 +211,10 @@
 </div>
 <script type="text/javascript">
   $(document).ready(function() {
-	  $('#text_topup').text('<?php echo $this->session->userdata('currency_symbol_web'); ?> 0');
+	  $('#text_topup').text('<?php echo $this->config->item('currency_symbol_web'); ?> 0');
 	  
 	  $('#amount').change(function(){
-		  $('#text_topup').text('<?php echo $this->session->userdata('currency_symbol_web'); ?> '+$('#amount').val());
+		  $('#text_topup').text('<?php echo $this->config->item('currency_symbol_web'); ?> '+$('#amount').val());
 	  })
   });
 </script>
