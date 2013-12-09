@@ -907,9 +907,9 @@
         </section>
 
        
-           <div id="iphone" style="flot:left;display:inline;width:700px;">
+           <div id="iphone">
 
-      <h3 id="store1"> 
+      <h3 id="store1" style="flot:left;display:inline;width:700px;"> 
    2. Enter your phone number and we will send you a text message containing your Login details and a link to the App Store</h3>
         
         
