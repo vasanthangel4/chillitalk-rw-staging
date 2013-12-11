@@ -15,7 +15,7 @@ class Home_saver_bundles extends MY_Controller{
 		$this->session->set_userdata('bundles','Sri Lanka');
 		header("HTTP/1.1 200 OK");
 		
-		$uri = 'http://sws.vectone.com/api/CTPBundle?appCode='.$this->session->userdata('app_code_web').'&accId='.$this->session->userdata('account_id');
+		$uri = 'http://sws.vectone.com/api/CTPBundle?appCode='.$this->config->item('app_code_web').'&accId='.$this->session->userdata('account_id');
 		  
 		
 		$this->rest->format('application/json');
@@ -106,33 +106,33 @@ class Home_saver_bundles extends MY_Controller{
 			$this->rest->format('application/json');
 			$result_prefix = $this->rest->get($uri_prefix);*/
 			
-			if(preg_match('/'.$this->session->userdata('prefix_phone_web').'/i', $mobile_number)) {
+			if(preg_match('/'.$this->config->item('prefix_phone_web').'/i', $mobile_number)) {
 				$mobile_number_pref = ltrim($mobile_number,0);
 			}else{
-				$mobile_number_pref = $this->session->userdata('prefix_phone_web').ltrim($mobile_number,0);
+				$mobile_number_pref = $this->config->item('prefix_phone_web').ltrim($mobile_number,0);
 			}
 			
 			if($add_number1 != null) {
-				if(preg_match('/'.$this->session->userdata('prefix_phone_web').'/i', $add_number1)) {
+				if(preg_match('/'.$this->config->item('prefix_phone_web').'/i', $add_number1)) {
 					$add_number1_pref = ltrim($add_number1,0);
 				}else{
-					$add_number1_pref = $this->session->userdata('prefix_phone_web').ltrim($add_number1,0);
+					$add_number1_pref = $this->config->item('prefix_phone_web').ltrim($add_number1,0);
 				}
 			}
 			
 			if($add_number2 != null) {
-				if(preg_match('/'.$this->session->userdata('prefix_phone_web').'/i', $add_number2)) {
+				if(preg_match('/'.$this->config->item('prefix_phone_web').'/i', $add_number2)) {
 					$add_number2_pref = ltrim($add_number2,0);
 				}else{
-					$add_number2_pref = $this->session->userdata('prefix_phone_web').ltrim($add_number2,0);
+					$add_number2_pref = $this->config->item('prefix_phone_web').ltrim($add_number2,0);
 				}
 			}
 			
 			if($add_number3 != null) {
-				if(preg_match('/'.$this->session->userdata('prefix_phone_web').'/i', $add_number1)) {
+				if(preg_match('/'.$this->config->item('prefix_phone_web').'/i', $add_number1)) {
 					$add_number3_pref = ltrim($add_number3,0);
 				}else{
-					$add_number3_pref = $this->session->userdata('prefix_phone_web').ltrim($add_number3,0);
+					$add_number3_pref = $this->config->item('prefix_phone_web').ltrim($add_number3,0);
 				}
 			}
 			
@@ -140,8 +140,8 @@ class Home_saver_bundles extends MY_Controller{
 			$uri1 = 'http://sws.vectone.com/api/CTPHomeSaver';
 						
 			$params1 = array('Id' => 1, 
-							'SiteCode' => $this->session->userdata('site_code_web'),
-							'ApplicationCode' => $this->session->userdata('app_code_web'),
+							'SiteCode' => $this->config->item('site_code_web'),
+							'ApplicationCode' => $this->config->item('app_code_web'),
 							'Country' => $country_code,
 							'Step' => $step,
 							'FirstName' => $this->session->userdata('firstname'),
@@ -177,7 +177,7 @@ class Home_saver_bundles extends MY_Controller{
 							'CostTotal'=> '',
 							'AccountId'=> $this->session->userdata('account_id'),
 							'Username'=> $this->session->userdata('email'),
-							'Currency'=> $this->session->userdata('currency_web'),
+							'Currency'=> $this->config->item('currency_web'),
 							'SourceReg'=> '',
 							'ErrCode'=> '',
 							'ErrMsg'=> ''
@@ -305,8 +305,8 @@ class Home_saver_bundles extends MY_Controller{
 				$state = $this->input->post('state');
 				  
 				$params2 = array('Id' => 1, 
-								'SiteCode' => $this->session->userdata('site_code_web'),
-								'ApplicationCode' => $this->session->userdata('app_code_web'),
+								'SiteCode' => $this->config->item('site_code_web'),
+								'ApplicationCode' => $this->config->item('app_code_web'),
 								'Country' => $country_code,
 								'Step' => 10,
 								'FirstName' => $this->session->userdata('firstname'),
@@ -342,7 +342,7 @@ class Home_saver_bundles extends MY_Controller{
 								'CostTotal' => $this->session->userdata('total'),
 								'AccountId' => $this->session->userdata('account_id'),
 								'Username' => $this->session->userdata('email'),
-								'Currency' => $this->session->userdata('currency_web'),
+								'Currency' => $this->config->item('currency_web'),
 								'SourceReg' => '',
 								'ErrCode' => '',
 								'ErrMsg' => '',
@@ -420,8 +420,8 @@ class Home_saver_bundles extends MY_Controller{
 		$uri_p = 'http://sws.vectone.com/api/CTPHomeSaver';
 			
 			$params_p = array('Id' => 1, 
-							'SiteCode' => $this->session->userdata('site_code_web'),
-							'ApplicationCode' => $this->session->userdata('app_code_web'),
+							'SiteCode' => $this->config->item('site_code_web'),
+							'ApplicationCode' => $this->config->item('app_code_web'),
 							'Country' => $this->session->userdata('country_saver'),
 							'Step' => 103,
 							'FirstName' => $this->session->userdata('firstname'),
@@ -458,7 +458,7 @@ class Home_saver_bundles extends MY_Controller{
 							'CostDiscount' => $this->session->userdata('promo_code_discount'),
 							'AccountId'=> $this->session->userdata('account_id'),
 							'Username'=> $this->session->userdata('email'),
-							'Currency'=> $this->session->userdata('currency_web'),
+							'Currency'=> $this->config->item('currency_web'),
 							'SourceReg'=> '',
 							'ErrCode'=> '',
 							'ErrMsg'=> '',
@@ -525,8 +525,8 @@ class Home_saver_bundles extends MY_Controller{
 			$uri3 = 'http://sws.vectone.com/api/CTPHomeSaver';
 			
 			$params3 = array('Id' => 1, 
-							'SiteCode' => $this->session->userdata('site_code_web'),
-							'ApplicationCode' => $this->session->userdata('app_code_web'),
+							'SiteCode' => $this->config->item('site_code_web'),
+							'ApplicationCode' => $this->config->item('app_code_web'),
 							'Country' => $country_code,
 							'Step' => 11,
 							'FirstName' => $this->session->userdata('firstname'),
@@ -562,7 +562,7 @@ class Home_saver_bundles extends MY_Controller{
 							'CostDiscount' => $this->session->userdata('promo_code_discount'),
 							'AccountId'=> $this->session->userdata('account_id'),
 							'Username'=> $this->session->userdata('email'),
-							'Currency'=> $this->session->userdata('currency_web'),
+							'Currency'=> $this->config->item('currency_web'),
 							'SourceReg'=> '',
 							'ErrCode'=> '',
 							'ErrMsg'=> ''
@@ -691,33 +691,33 @@ class Home_saver_bundles extends MY_Controller{
 			$this->rest->format('application/json');
 			$result_prefix = $this->rest->get($uri_prefix);*/
 			
-			if(preg_match('/'.$this->session->userdata('prefix_phone_web').'/i', $mobile_number)) {
+			if(preg_match('/'.$this->config->item('prefix_phone_web').'/i', $mobile_number)) {
 				$mobile_number_pref = ltrim($mobile_number,0);
 			}else{
-				$mobile_number_pref = $this->session->userdata('prefix_phone_web').ltrim($mobile_number,0);
+				$mobile_number_pref = $this->config->item('prefix_phone_web').ltrim($mobile_number,0);
 			}
 			
 			if($add_number1 != null) {
-				if(preg_match('/'.$this->session->userdata('prefix_phone_web').'/i', $add_number1)) {
+				if(preg_match('/'.$this->config->item('prefix_phone_web').'/i', $add_number1)) {
 					$add_number1_pref = ltrim($add_number1,0);
 				}else{
-					$add_number1_pref = $this->session->userdata('prefix_phone_web').ltrim($add_number1,0);
+					$add_number1_pref = $this->config->item('prefix_phone_web').ltrim($add_number1,0);
 				}
 			}
 			
 			if($add_number2 != null) {
-				if(preg_match('/'.$this->session->userdata('prefix_phone_web').'/i', $add_number2)) {
+				if(preg_match('/'.$this->config->item('prefix_phone_web').'/i', $add_number2)) {
 					$add_number2_pref = ltrim($add_number2,0);
 				}else{
-					$add_number2_pref = $this->session->userdata('prefix_phone_web').ltrim($add_number2,0);
+					$add_number2_pref = $this->config->item('prefix_phone_web').ltrim($add_number2,0);
 				}
 			}
 			
 			if($add_number3 != null) {
-				if(preg_match('/'.$this->session->userdata('prefix_phone_web').'/i', $add_number1)) {
+				if(preg_match('/'.$this->config->item('prefix_phone_web').'/i', $add_number1)) {
 					$add_number3_pref = ltrim($add_number3,0);
 				}else{
-					$add_number3_pref = $this->session->userdata('prefix_phone_web').ltrim($add_number3,0);
+					$add_number3_pref = $this->config->item('prefix_phone_web').ltrim($add_number3,0);
 				}
 			}
 			
@@ -725,8 +725,8 @@ class Home_saver_bundles extends MY_Controller{
 			$uri_step1 = 'http://sws.vectone.com/api/CTPHomeSaver';
 						
 			$params_step1 = array('Id' => 1, 
-							'SiteCode' => $this->session->userdata('site_code_web'),
-							'ApplicationCode' => $this->session->userdata('app_code_web'),
+							'SiteCode' => $this->config->item('site_code_web'),
+							'ApplicationCode' => $this->config->item('app_code_web'),
 							'Country' => $country_code,
 							'Step' => $step,
 							'FirstName' => $this->session->userdata('firstname'),
@@ -762,7 +762,7 @@ class Home_saver_bundles extends MY_Controller{
 							'CostTotal'=> '',
 							'AccountId'=> $this->session->userdata('account_id'),
 							'Username'=> $this->session->userdata('email'),
-							'Currency'=> $this->session->userdata('currency_web'),
+							'Currency'=> $this->config->item('currency_web'),
 							'SourceReg'=> '',
 							'ErrCode'=> '',
 							'ErrMsg'=> ''
@@ -883,8 +883,8 @@ class Home_saver_bundles extends MY_Controller{
 				$state = $this->input->post('state');
 				  
 				$params_step2 = array('Id' => 1, 
-								'SiteCode' => $this->session->userdata('site_code_web'),
-								'ApplicationCode' => $this->session->userdata('app_code_web'),
+								'SiteCode' => $this->config->item('site_code_web'),
+								'ApplicationCode' => $this->config->item('app_code_web'),
 								'Country' => $country_code,
 								'Step' => 10,
 								'FirstName' => $this->session->userdata('firstname'),
@@ -920,7 +920,7 @@ class Home_saver_bundles extends MY_Controller{
 								'CostTotal' => $this->session->userdata('total'),
 								'AccountId' => $this->session->userdata('account_id'),
 								'Username' => $this->session->userdata('email'),
-								'Currency' => $this->session->userdata('currency_web'),
+								'Currency' => $this->config->item('currency_web'),
 								'SourceReg' => '',
 								'ErrCode' => '',
 								'ErrMsg' => '',

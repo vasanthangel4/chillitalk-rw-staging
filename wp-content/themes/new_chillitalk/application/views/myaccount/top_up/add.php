@@ -424,7 +424,9 @@
                         <select name="amount" id="amount" required>
                         	<option value="">    <?php echo lang('add.Selectamount'); ?> </option>
                             <?php foreach($amount->List as $val) { ?>
-                            <option value="<?php echo $val->Amount; ?>" <?php echo set_select('amount', $val->Amount); ?> ><?php echo $this->config->item('currency_symbol_web'); ?> <?php echo $val->Amount; ?></option>
+                            <option value="<?php echo $val->Amount; ?>" <?php echo set_select('amount', $val->Amount); ?> >
+							<?php echo $this->config->item('currency_symbol_web'); ?> <?php echo $val->Amount; ?>
+                            </option>
                             <?php } ?>
                             
                         </select>

@@ -112,7 +112,7 @@
                             <p>
                             <select name="min_amount">
                             <?php for($i=1;$i<=10;$i++){ ?>
-                            	<option value="<?php echo $i; ?>"> <?php echo $this->session->userdata('currency_symbol_web').' '.$i; ?></option>
+                            	<option value="<?php echo $i; ?>"> <?php echo $this->config->item('currency_symbol_web').' '.$i; ?></option>
                                 
                             <?php } ?>
                             </select>
@@ -126,7 +126,7 @@
                             <p>
                             <select name="topup_amount">
                             	<?php for($i=1;$i<=10;$i++){ ?>
-                            	<option value="<?php echo $i; ?>">  <?php echo $this->session->userdata('currency_symbol_web').' '.$i; ?></option>
+                            	<option value="<?php echo $i; ?>">  <?php echo $this->config->item('currency_symbol_web').' '.$i; ?></option>
                                 
                             <?php } ?>
                             </select>
@@ -174,7 +174,7 @@
                             Minimum Amount :
                             </p>
                             <p>
-                             <?php echo $this->session->userdata('currency_symbol_web').' '.$topup->MinLevelID; ?>
+                             <?php echo $this->config->item('currency_symbol_web').' '.$topup->MinLevelID; ?>
                             </p>
                             
                             <br/>
@@ -183,7 +183,7 @@
                            	Auto Top-up Amount :
                             </p>
                             <p>
-                             <?php echo $this->session->userdata('currency_symbol_web').' '.$topup->TopupAmt; ?>
+                             <?php echo $this->config->item('currency_symbol_web').' '.$topup->TopupAmt; ?>
                             </p>
                                <div class="login">
                         <button type="button" class="loginsd" id="modify">Modify Auto Top Up</button>
@@ -211,9 +211,9 @@
                             <select name="min_amount">
                             <?php for($i=1;$i<=10;$i++){ ?>
 								<?php if($topup->MinLevelID == $i) { ?>
-                                    <option value="<?php echo $i; ?>" selected="selected"> <?php echo $this->session->userdata('currency_symbol_web').' '.$i; ?></option>
+                                    <option value="<?php echo $i; ?>" selected="selected"> <?php echo $this->config->item('currency_symbol_web').' '.$i; ?></option>
                                 <?php }else{ ?>
-                                	<option value="<?php echo $i; ?>"> <?php echo $this->session->userdata('currency_symbol_web').' '.$i; ?></option>
+                                	<option value="<?php echo $i; ?>"> <?php echo $this->config->item('currency_symbol_web').' '.$i; ?></option>
                                 <?php } ?>
                             <?php } ?>
                             </select>
@@ -228,9 +228,9 @@
                             <select name="topup_amount">
                             	<?php for($i=1;$i<=10;$i++){ ?>
                             	<?php if($topup->TopupAmt == $i) { ?>
-                                    <option value="<?php echo $i; ?>" selected="selected"> <?php echo $this->session->userdata('currency_symbol_web').' '.$i; ?></option>
+                                    <option value="<?php echo $i; ?>" selected="selected"> <?php echo $this->config->item('currency_symbol_web').' '.$i; ?></option>
                                 <?php }else{ ?>
-                                	<option value="<?php echo $i; ?>"> <?php echo $this->session->userdata('currency_symbol_web').' '.$i; ?></option>
+                                	<option value="<?php echo $i; ?>"> <?php echo $this->config->item('currency_symbol_web').' '.$i; ?></option>
                                 <?php } ?>
                                 
                             <?php } ?>

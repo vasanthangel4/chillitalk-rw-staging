@@ -24,7 +24,7 @@ class Home extends MY_Controller{
 		
 		$country = $this->uri->segment('3');
 		
-		$uri = 'http://sws.vectone.com/api/CTPRate?origin=USA&dest='.$country.'&currency='.$this->session->userdata('currency_web').'&lang=ENG';
+		$uri = 'http://sws.vectone.com/api/CTPRate?origin=USA&dest='.$country.'&currency='.$this->config->item('currency_web').'&lang=ENG';
 	  	
 		
 		
@@ -41,7 +41,7 @@ class Home extends MY_Controller{
 		
 		$country = $this->uri->segment('3');
 		
-		$uri = 'http://sws.vectone.com/api/CTPRate?origin=USA&dest='.$country.'&currency='.$this->session->userdata('currency_web').'&lang=ENG';
+		$uri = 'http://sws.vectone.com/api/CTPRate?origin=USA&dest='.$country.'&currency='.$this->config->item('currency_web').'&lang=ENG';
 	  	
 		
 		

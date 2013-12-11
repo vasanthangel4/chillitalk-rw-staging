@@ -22,7 +22,7 @@ class Login_member extends MY_Controller{
 		  
 		  	$params = array('Login' => $login, 
 							'Password' => $password,
-							'Site' => $this->session->userdata('site_code_web'),
+							'Site' => $this->config->item('site_code_web'),
 							'IpAddr' => $this->input->ip_address(),
 							'UserAgent' => $this->input->user_agent());
 		  	$this->rest->format('application/json');
@@ -117,7 +117,7 @@ class Login_member extends MY_Controller{
 								"Addr2" => "null",
 								"City" => "null",
 								"PostCode" => "null",
-								"Country" => $this->session->userdata('country_name_web')
+								"Country" => $this->config->item('country_name_web')
 							   );
 							
 		  	$this->rest->format('application/json');

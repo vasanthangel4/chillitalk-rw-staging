@@ -41,7 +41,7 @@ class Support extends MY_Controller{
 							'LastName' => $last_name,
 							'Email' => $email,
 							'PhoneNo' => $contact_number,
-							'Country' => $this->session->userdata('country_code2_web'),
+							'Country' => $this->config->item('country_code2_web'),
 							'Subject' => $subject,
 							'Content' => $message
 							);

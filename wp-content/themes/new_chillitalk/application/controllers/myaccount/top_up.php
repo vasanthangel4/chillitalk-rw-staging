@@ -38,11 +38,11 @@ class Top_up extends MY_Controller{
 			$uri_voucher = 'http://sws.vectone.com/api/CTPVoucherTopup';
 		
 		
-			$params_voucher = array('Website' => $this->session->userdata('app_code_web'), 
-							'Country' => $this->session->userdata('country_code2_web'),
-							'AccountId' => $this->session->userdata('account_id'),
-							'Pincode' => $voucher
-							);
+			$params_voucher = array('Website' => $this->config->item('app_code_web'), 
+									'Country' => $this->config->item('country_code2_web'),
+									'AccountId' => $this->session->userdata('account_id'),
+									'Pincode' => $voucher
+							       );
 			$this->rest->format('application/json');
 		  
 			$result_voucher = $this->rest->post($uri_voucher, $params_voucher);
@@ -88,17 +88,14 @@ class Top_up extends MY_Controller{
 		$amount = $this->input->post('amount');
 		$auto_recharge = $this->input->post('auto_recharge');
 		$first_name = $this->input->post('first_name');
-		$last_name = $this->input->post('last_name');
 		$credit_card_number = $this->input->post('credit_card_number');
 		$month = $this->input->post('month');
 		$year = $this->input->post('year');
 		$cvv = $this->input->post('cvv');
-		$billing_phone = $this->input->post('billing_phone');
 		$country = $this->input->post('country');
 		$city = $this->input->post('city');
 		$address = $this->input->post('address');
 		$zip = $this->input->post('zip');
-		$state = $this->input->post('state');
 		
 		if($valid->run()) {
 			/*$this->recaptcha->recaptcha_check_answer();
@@ -107,25 +104,25 @@ class Top_up extends MY_Controller{
 				
 				$uri_card = 'http://sws.vectone.com/api/CTACCTopupStep1';
 			  
-				$params_card = array('siteCode' => $this->session->userdata('site_code_web'), 
-								'appCode' => $this->session->userdata('app_code_web'),
-								'accountId' => $this->session->userdata('account_id'),
-								'ccNo' => $credit_card_number,
-								'cvv' => $cvv,
-								'expDate' => $year.$month,
-								'firstName' => $first_name,
-								'lastName' => $last_name,
-								'streetName' => $address,
-								'city' => $city,
-								'postCode' => $zip,
-								'country' => $country,
-								'email'   => $this->session->userdata('email'),
-								'amount'  => $amount,
-								'autoTopup' => true,
-								'bypass3DS' => true,
-								'state' => '',
-								'ipAddr' => $this->input->ip_address()
-								);
+				$params_card = array('siteCode' => $this->config->item('site_code_web'), 
+									 'appCode' => $this->config->item('app_code_web'),
+									 'accountId' => $this->session->userdata('account_id'),
+									 'ccNo' => $credit_card_number,
+									 'cvv' => $cvv,
+									 'expDate' => $year.$month,
+									 'firstName' => $first_name,
+									 'lastName' => $first_name,
+									 'streetName' => $address,
+									 'city' => $city,
+									 'postCode' => $zip,
+									 'country' => $country,
+									 'email'   => $this->session->userdata('email'),
+									 'amount'  => $amount,
+									 'autoTopup' => true,
+									 'bypass3DS' => true,
+									 'state' => '',
+									 'ipAddr' => $this->input->ip_address()
+									);
 								
 				
 				$this->rest->format('application/json');
@@ -180,18 +177,21 @@ class Top_up extends MY_Controller{
 		}
 			
 		
-		$uri_amount = 'http://sws.vectone.com/api/CTPCCTopupAvlCredit?country='.$this->session->userdata('country_code_web');
+		$uri_amount = 'http://sws.vectone.com/api/CTPCCTopupAvlCredit?country='.$this->config->item('country_code_web');
 		$this->rest->format('application/json');
 		  
 		$amount = $this->rest->get($uri_amount);
 		
-		
+		$uri_c = 'http://sws.vectone.com/api/CTPCountry?langCode=ENG';
+		$this->rest->format('application/json');
+		$result_c = $this->rest->get($uri_c);
+
 		
 	    $this->lang->load('myaccount/add');
 		$data = array('title' => 'Add Credit Card',
 					  'isi'   => 'top_up/add',
 					  'amount' => $amount,
-					  'captcha' => $this->recaptcha->recaptcha_get_html()
+					  'country' => $result_c
 					  );
 		
 		$this->load->view('myaccount/template/wrapper',$data);
@@ -209,25 +209,25 @@ class Top_up extends MY_Controller{
 				
 		$uri_process_card = 'http://sws.vectone.com/api/CTACCTopupStep2';
 
-	  	$params_process_card = array("siteCode" => $this->session->userdata('site_code_web'),
-							"appCode" => $this->session->userdata('app_code_web'),
-							"accountId" => $this->session->userdata('account_id'),
-							"merchantRefCode" => $this->session->userdata('ref_code_card'),
-							"ccNo" => $this->session->userdata('ccno_card'),
-							"cvv" => $this->session->userdata('cvv_card'),
-							"expDate" => $this->session->userdata('exp_date_card'),
-							"firstName" => $this->session->userdata('first_card'),
-							"lastName" => $this->session->userdata('last_card'),
-							"streetName" => $this->session->userdata('street_card'),
-							"city" => $this->session->userdata('city_card'),
-							"postCode" => $this->session->userdata('post_code_card'),
-							"country" => $this->session->userdata('country_card'),
-							"email" => $this->session->userdata('email'),
-							"amount" => $this->session->userdata('amount_card'),
-							"autoTopup" => $this->session->userdata('auto_topup_card'),
-							"paRes" => $_POST['PaRes'],
-							'ipAddr' => $this->input->ip_address()
-							);
+	  	$params_process_card = array("siteCode" => $this->config->item('site_code_web'),
+									"appCode" => $this->config->item('app_code_web'),
+									"accountId" => $this->session->userdata('account_id'),
+									"merchantRefCode" => $this->session->userdata('ref_code_card'),
+									"ccNo" => $this->session->userdata('ccno_card'),
+									"cvv" => $this->session->userdata('cvv_card'),
+									"expDate" => $this->session->userdata('exp_date_card'),
+									"firstName" => $this->session->userdata('first_card'),
+									"lastName" => $this->session->userdata('first_card'),
+									"streetName" => $this->session->userdata('street_card'),
+									"city" => $this->session->userdata('city_card'),
+									"postCode" => $this->session->userdata('post_code_card'),
+									"country" => $this->session->userdata('country_card'),
+									"email" => $this->session->userdata('email'),
+									"amount" => $this->session->userdata('amount_card'),
+									"autoTopup" => $this->session->userdata('auto_topup_card'),
+									"paRes" => $_POST['PaRes'],
+									'ipAddr' => $this->input->ip_address()
+									);
 							
 		$this->rest->format('application/json');
 	  
@@ -245,7 +245,7 @@ class Top_up extends MY_Controller{
 				$param_setting = array("TopupSettingStep" => 1,
 									  "SubscriptionID" => $this->session->userdata('subc_id'),
 									  "AccountID" => $this->session->userdata('account_id'),
-									  "Currency" => $this->session->userdata('currency_web'),
+									  "Currency" => $this->config->item('currency_web'),
 									  "Amount" => '',
 									  "LastOrderId" => '',
 									  "MinimumLevel" => ''
@@ -308,7 +308,6 @@ class Top_up extends MY_Controller{
 		$valid->set_rules('credit_card_number','Credit card number', 'required|numeric|min_length[5]');
 		$valid->set_rules('month','Exp Month', 'required|numeric|exact_length[2]');
 		$valid->set_rules('cvv','CVV', 'required');
-		$valid->set_rules('billing_phone','Billing Phone No', 'required|numeric|min_length[4]');
 		$valid->set_rules('country','Country', 'required');
 		$valid->set_rules('address','Address', 'required');
 		$valid->set_rules('zip','ZIP', 'required');
@@ -316,17 +315,14 @@ class Top_up extends MY_Controller{
 		$amount = $this->input->post('amount');
 		$auto_recharge = $this->input->post('auto_recharge');
 		$first_name = $this->input->post('first_name');
-		$last_name = $this->input->post('last_name');
 		$credit_card_number = $this->input->post('credit_card_number');
 		$month = $this->input->post('month');
 		$year = $this->input->post('year');
 		$cvv = $this->input->post('cvv');
-		$billing_phone = $this->input->post('billing_phone');
 		$country = $this->input->post('country');
 		$city = $this->input->post('city');
 		$address = $this->input->post('address');
 		$zip = $this->input->post('zip');
-		$state = $this->input->post('state');
 		
 		if($valid->run()) {
 			
@@ -336,25 +332,25 @@ class Top_up extends MY_Controller{
 				
 				$uri_card1 = 'http://sws.vectone.com/api/CTACCTopupStep1';
 			  
-				$params_card1 = array('siteCode' => $this->session->userdata('site_code_web'), 
-								'appCode' => $this->session->userdata('app_code_web'),
-								'accountId' => $this->session->userdata('account_id'),
-								'ccNo' => $credit_card_number,
-								'cvv' => $cvv,
-								'expDate' => $year.$month,
-								'firstName' => $first_name,
-								'lastName' => $first_name,
-								'streetName' => $address,
-								'city' => $city,
-								'postCode' => $zip,
-								'country' => $country,
-								'email'   => $this->session->userdata('email'),
-								'amount'  => $amount,
-								'autoTopup' => true,
-								'bypass3DS' => true,
-								'state' => '',
-								'ipAddr' => $this->input->ip_address()
-								);
+				$params_card1 = array('siteCode' => $this->config->item('site_code_web'), 
+									'appCode' => $this->config->item('app_code_web'),
+									'accountId' => $this->session->userdata('account_id'),
+									'ccNo' => $credit_card_number,
+									'cvv' => $cvv,
+									'expDate' => $year.$month,
+									'firstName' => $first_name,
+									'lastName' => $first_name,
+									'streetName' => $address,
+									'city' => $city,
+									'postCode' => $zip,
+									'country' => $country,
+									'email'   => $this->session->userdata('email'),
+									'amount'  => $amount,
+									'autoTopup' => true,
+									'bypass3DS' => true,
+									'state' => '',
+									'ipAddr' => $this->input->ip_address()
+									);
 								
 				
 				$this->rest->format('application/json');
@@ -371,7 +367,7 @@ class Top_up extends MY_Controller{
 					$this->session->set_userdata('cvv_card1', $cvv);
 					$this->session->set_userdata('exp_date_card1', $year.$month);
 					$this->session->set_userdata('first_card1', $first_name);
-					$this->session->set_userdata('last_card1', $last_name);
+					$this->session->set_userdata('last_card1', $first_name);
 					$this->session->set_userdata('street_card1', $address);
 					$this->session->set_userdata('city_card1', $city);
 					$this->session->set_userdata('post_code_card1', $zip);
@@ -408,17 +404,20 @@ class Top_up extends MY_Controller{
 			
 		}
 		
-		$uri_amount = 'http://sws.vectone.com/api/CTPCCTopupAvlCredit?country='.$this->session->userdata('country_code_web');
+		$uri_amount = 'http://sws.vectone.com/api/CTPCCTopupAvlCredit?country='.$this->config->item('country_code_web');
 		$this->rest->format('application/json');
 		  
 		$amount = $this->rest->get($uri_amount);
 		
+		$uri_c = 'http://sws.vectone.com/api/CTPCountry?langCode=ENG';
+		$this->rest->format('application/json');
+		$result_c = $this->rest->get($uri_c);
 		
 	    $this->lang->load('myaccount/add');
 		$data = array('title' => 'Add Credit Card',
 					  'amount' => $amount,
 					  'isi' => 'top_up/add_credit',
-					  'captcha' => $this->recaptcha->recaptcha_get_html()
+					  'country' => $result_c
 					  );
 		
 		$this->load->view('myaccount/template/wrapper_full',$data);
@@ -436,25 +435,25 @@ class Top_up extends MY_Controller{
 				
 		$uri_prcocess_card1 = 'http://sws.vectone.com/api/CTACCTopupStep2';
 
-	  	$params_prcocess_card1 = array("siteCode" => $this->session->userdata('site_code_web'),
-							"appCode" => $this->session->userdata('app_code_web'),
-							"accountId" => $this->session->userdata('account_id'),
-							"merchantRefCode" => $this->session->userdata('ref_code_card1'),
-							"ccNo" => $this->session->userdata('ccno_card1'),
-							"cvv" => $this->session->userdata('cvv_card1'),
-							"expDate" => $this->session->userdata('exp_date_card1'),
-							"firstName" => $this->session->userdata('first_card1'),
-							"lastName" => $this->session->userdata('last_card1'),
-							"streetName" => $this->session->userdata('street_card1'),
-							"city" => $this->session->userdata('city_card1'),
-							"postCode" => $this->session->userdata('post_code_card1'),
-							"country" => $this->session->userdata('country_card1'),
-							"email" => $this->session->userdata('email'),
-							"amount" => $this->session->userdata('amount'),
-							"autoTopup" => $this->session->userdata('auto_topup_card1'),
-							"paRes" => $_POST['PaRes'],
-							'ipAddr' => $this->input->ip_address()
-							);
+	  	$params_prcocess_card1 = array("siteCode" => $this->config->item('site_code_web'),
+										"appCode" => $this->config->item('app_code_web'),
+										"accountId" => $this->session->userdata('account_id'),
+										"merchantRefCode" => $this->session->userdata('ref_code_card1'),
+										"ccNo" => $this->session->userdata('ccno_card1'),
+										"cvv" => $this->session->userdata('cvv_card1'),
+										"expDate" => $this->session->userdata('exp_date_card1'),
+										"firstName" => $this->session->userdata('first_card1'),
+										"lastName" => $this->session->userdata('last_card1'),
+										"streetName" => $this->session->userdata('street_card1'),
+										"city" => $this->session->userdata('city_card1'),
+										"postCode" => $this->session->userdata('post_code_card1'),
+										"country" => $this->session->userdata('country_card1'),
+										"email" => $this->session->userdata('email'),
+										"amount" => $this->session->userdata('amount'),
+										"autoTopup" => $this->session->userdata('auto_topup_card1'),
+										"paRes" => $_POST['PaRes'],
+										'ipAddr' => $this->input->ip_address()
+										);
 							
 		$this->rest->format('application/json');
 	  
@@ -469,13 +468,13 @@ class Top_up extends MY_Controller{
 				$uri_setting2 = 'http://sws.vectone.com/api/CTPAutoTopupSetting';
 			
 				$param_setting2 = array("TopupSettingStep" => 1,
-									  "SubscriptionID" => $this->session->userdata('subc_id'),
-									  "AccountID" => $this->session->userdata('account_id'),
-									  "Currency" => $this->session->userdata('currency_web'),
-									  "Amount" => '',
-									  "LastOrderId" => '',
-									  "MinimumLevel" => ''
-									  );
+										"SubscriptionID" => $this->session->userdata('subc_id'),
+										"AccountID" => $this->session->userdata('account_id'),
+										"Currency" => $this->config->item('currency_web'),
+										"Amount" => '',
+										"LastOrderId" => '',
+										"MinimumLevel" => ''
+										);
 								  
 				$this->rest->format('application/json');
 				$result_setting2 = $this->rest->post($uri_setting2, $param_setting2);
@@ -541,8 +540,8 @@ class Top_up extends MY_Controller{
 				
 				$uri_card = 'http://sws.vectone.com/api/CTACCTopupExisting';
 		  
-				$params_card = array('siteCode' => $this->session->userdata('site_code_web'), 
-									 'appCode' => $this->session->userdata('app_code_web'),
+				$params_card = array('siteCode' => $this->config->item('site_code_web'), 
+									 'appCode' => $this->config->item('app_code_web'),
 									 'accountId' => $this->session->userdata('account_id'),
 									 'ccNo' => $this->session->userdata('cvv'),
 									 'cvv' => $cvv,
@@ -583,7 +582,7 @@ class Top_up extends MY_Controller{
 						$param_setting = array("TopupSettingStep" => 1,
 															  "SubscriptionID" => $this->session->userdata('subc_id'),
 															  "AccountID" => $this->session->userdata('account_id'),
-															  "Currency" => $this->session->userdata('currency_web'),
+															  "Currency" => $this->config->item('currency_web'),
 															  "Amount" => '',
 															  "LastOrderId" => '',
 															  "MinimumLevel" => ''
@@ -622,7 +621,7 @@ class Top_up extends MY_Controller{
 			
 		}
 		
-		$uri_amount = 'http://sws.vectone.com/api/CTPCCTopupAvlCredit?country='.$this->session->userdata('country_code_web');
+		$uri_amount = 'http://sws.vectone.com/api/CTPCCTopupAvlCredit?country='.$this->config->item('country_code_web');
 		$this->rest->format('application/json');
 		  
 		$amount = $this->rest->get($uri_amount);

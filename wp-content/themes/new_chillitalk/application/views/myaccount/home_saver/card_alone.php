@@ -60,19 +60,19 @@
                         </tr>
                           <tr>
                         	<th>Home Saver:</th>
-                            <td> <?php echo $this->session->userdata('currency_symbol_web'); ?> <?php echo $this->session->userdata('home_saver'); ?></td>
+                            <td> <?php echo $this->config->item('currency_symbol_web'); ?> <?php echo $this->session->userdata('home_saver'); ?></td>
                         </tr>
                         <tr>
                         	<th>Additional Numbers:</th>
-                            <td><?php echo $this->session->userdata('currency_symbol_web'); ?> <?php echo $this->session->userdata('add_number'); ?></td>
+                            <td><?php echo $this->config->item('currency_symbol_web'); ?> <?php echo $this->session->userdata('add_number'); ?></td>
                         </tr>
                               <tr>
                         	<th>Promo code Discount:</th>
-                            <td><?php echo $this->session->userdata('currency_symbol_web'); ?> <?php echo $this->session->userdata('promo_code_discount'); ?></td>
+                            <td><?php echo $this->config->item('currency_symbol_web'); ?> <?php echo $this->session->userdata('promo_code_discount'); ?></td>
                         </tr>
                            <tr>
                         	<th>Total </th>
-                            <td> <?php echo $this->session->userdata('currency_symbol_web'); ?> <?php echo $this->session->userdata('total'); ?></td>
+                            <td> <?php echo $this->config->item('currency_symbol_web'); ?> <?php echo $this->session->userdata('total'); ?></td>
                         </tr>
                              <tr height="10px">
                         	<th></th>
@@ -154,7 +154,7 @@
                             Total</label>
                         <label style="text-align:center !important;">
                             <input type="hidden" name="total_topup" />
-                            <?php echo $this->session->userdata('currency_symbol_web'); ?> <?php echo $this->session->userdata('total'); ?></label>
+                            <?php echo $this->config->item('currency_symbol_web'); ?> <?php echo $this->session->userdata('total'); ?></label>
                     </div>
                     
                      <div class="rightcunt">

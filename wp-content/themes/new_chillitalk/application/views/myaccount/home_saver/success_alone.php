@@ -87,7 +87,7 @@
                           <tr>
                         	<th style="text-align:left">Home Saver</th>
                             <td>:</td>
-                            <td> <?php echo $this->session->userdata('currency_symbol_web'); ?> <?php echo $this->session->userdata('home_saver'); ?></td>
+                            <td> <?php echo $this->config->item('currency_symbol_web'); ?> <?php echo $this->session->userdata('home_saver'); ?></td>
                         </tr>
                         <tr>
                         	<th style="text-align:left">Additional Numbers</th>
@@ -102,7 +102,7 @@
                            <tr>
                         	<th style="text-align:left">Total </th>
                             <td>:</td>
-                            <td> <?php echo $this->session->userdata('currency_symbol_web'); ?> <?php echo $this->session->userdata('total'); ?></td>
+                            <td> <?php echo $this->config->item('currency_symbol_web'); ?> <?php echo $this->session->userdata('total'); ?></td>
                         </tr>
 
                     </table>

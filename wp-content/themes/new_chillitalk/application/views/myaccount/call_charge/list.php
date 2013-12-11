@@ -21,17 +21,17 @@
                         <p>
                             Credit
                         </p>
-                        <span><?php echo $this->session->userdata('currency_symbol_web'); ?> <?php echo round($balance->MasterBal, 0); ?></span>
+                        <span><?php echo $this->config->item('currency_symbol_web'); ?> <?php echo round($balance->MasterBal, 0); ?></span>
                         <br />
                         <p>
                             Bonus Credit
                         </p>
-                        <span><?php echo $this->session->userdata('currency_symbol_web'); ?> <?php echo round($balance->PkgBal,0); ?></span>
+                        <span><?php echo $this->config->item('currency_symbol_web'); ?> <?php echo round($balance->PkgBal,0); ?></span>
                         <br />
                         <p class="bold">
                             Total Balance
                         </p>
-                        <span class="bold"><?php echo $this->session->userdata('currency_symbol_web'); ?> <?php echo round($balance->TotalBal,0); ?></span>
+                        <span class="bold"><?php echo $this->config->item('currency_symbol_web'); ?> <?php echo round($balance->TotalBal,0); ?></span>
                     </div>
                     <div>
                         <h5>
@@ -79,9 +79,9 @@
 		                              <td>
 		                                  <?php 
 		                                  if($val->Amount == ''){
-		                                  	echo str_replace($this->session->userdata('currency_web'),$this->session->userdata('currency_symbol_web'),0);
+		                                  	echo str_replace($this->config->item('currency_web'),$this->config->item('currency_symbol_web'),0);
 		                                  }else{
-		                                  	echo str_replace($this->session->userdata('currency_web'),$this->session->userdata('currency_symbol_web'),$val->Amount); 
+		                                  	echo str_replace($this->config->item('currency_web'),$this->config->item('currency_symbol_web'),$val->Amount); 
 		                                  }
 		                                  	
 		                                  ?>
@@ -171,8 +171,8 @@
 		                        <td><?php echo $val->Ani; ?> </td>
 		                        <td><?php echo $val->DialedNum; ?>  </td>
 		                        <td><?php echo strftime('%H:%M:%S', strtotime($val->TalkTimeHHmmss)); ?> </td>
-		                        <td> <?php echo $this->session->userdata('currency_symbol_web').' '.$val->TalkCharge; ?></td>
-		                        <td> <span class="bold"><?php echo $this->session->userdata('currency_symbol_web').' '.$val->Balance; ?></span></td>
+		                        <td> <?php echo $this->config->item('currency_symbol_web').' '.$val->TalkCharge; ?></td>
+		                        <td> <span class="bold"><?php echo $this->config->item('currency_symbol_web').' '.$val->Balance; ?></span></td>
 		                    </tr>
                     		<?php } ?>
                     	</tbody>

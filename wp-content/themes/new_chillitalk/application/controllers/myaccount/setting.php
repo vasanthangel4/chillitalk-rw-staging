@@ -49,7 +49,7 @@ class Setting extends MY_Controller{
 			$param_setting = array("TopupSettingStep" => 2,
 								  "SubscriptionID" => $this->session->userdata('subc_id'),
 								  "AccountID" => $this->session->userdata('account_id'),
-								  "Currency" => $this->session->userdata('currency_web'),
+								  "Currency" => $this->config->item('currency_web'),
 								  "Amount" => $this->input->post('topup_amount'),
 								  "LastOrderId" => $result_topup->LastOrderId,
 								  "MinimumLevel" => $this->input->post('min_amount')
@@ -248,7 +248,7 @@ class Setting extends MY_Controller{
 			$param_sett = array("TopupSettingStep" => 1,
 							  "SubscriptionID" => $this->session->userdata('subc_id'),
 							  "AccountID" => $this->session->userdata('account_id'),
-							  "Currency" => $this->session->userdata('currency_web'),
+							  "Currency" => $this->config->item('currency_web'),
 							  "Amount" => $result_topup->TopupAmt,
 							  "LastOrderId" => $result_topup->LastOrderId,
 							  "MinimumLevel" => $result_topup->MinLevelID

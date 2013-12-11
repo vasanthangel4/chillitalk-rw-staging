@@ -31,7 +31,7 @@ How do I check my balance?</h3>
 <p>
 You can check you balance in your 
 <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/call_charge/">account</a> or on the Chillitalk App. You need at least  
-<?php echo $this->session->userdata('currency_symbol_web'); ?> of credit to make a call. 
+<?php echo $this->config->item('currency_symbol_web'); ?> of credit to make a call. 
 </p>
 <h3>
 My top-up credit hasn’t appeared in my account – what should I do?</h3>

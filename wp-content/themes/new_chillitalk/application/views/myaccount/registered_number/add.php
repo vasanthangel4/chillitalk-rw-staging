@@ -13,7 +13,7 @@
                         <br />
                         <br />
                         <select name="country" class="bold">
-                            <option><?php echo $this->session->userdata('country_name_web'); ?>(+<?php echo $this->session->userdata('prefix_phone_web'); ?>)</option>
+                            <option><?php echo $this->config->item('country_name_web'); ?>(+<?php echo $this->config->item('prefix_phone_web'); ?>)</option>
                         </select>
                     </div>
                       <div>
@@ -37,7 +37,7 @@
                            Number</label>
                         <br />
                         <br />
-                            <input type="text" name="number" required class="bold" placeholder="+<?php echo $this->session->userdata('prefix_phone_web'); ?>" />
+                            <input type="text" name="number" required class="bold" placeholder="+<?php echo $this->config->item('prefix_phone_web'); ?>" />
                     </div>
                     
                 </div>

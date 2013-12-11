@@ -50,7 +50,7 @@
  	<br><br>
 <b>7.	Suspension and Termination</b>
 7. 1	(a) You may terminate the Service on giving Us thirty (30) days’ prior written notice
-	(b) Where You terminate the Service, You are obliged to pay Us, or We may deduct from Your Account, a <?php echo $this->session->userdata('currency_symbol_web'); ?>2 administration fee.<br>
+	(b) Where You terminate the Service, You are obliged to pay Us, or We may deduct from Your Account, a <?php echo $this->config->item('currency_symbol_web'); ?>2 administration fee.<br>
 7. 2	We may terminate this agreement or suspend the Service, or any part thereof, at any time where We determine that You are in breach of these TCs, have acted inconsistently with the spirit of these TCs, have violated Our rights, or the rights of any third party, where We suspect fraud or where We are obliged by any lawful court, regulator or other authority to terminate this agreement.<br>
 7. 3	We may also terminate this agreement where Your Account has been dormant for a period of at least 6 months.
  	<br><br>

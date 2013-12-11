@@ -14,7 +14,7 @@
   <div class="a"> 
       <!--<div class="buuts">Invite your friends</div>-->
       
-      <h1 class="rightcunt2">Share Chillitalk and Get  <?php echo $this->session->userdata('currency_symbol_web'); ?>4 Free Credit!</h1>
+      <h1 class="rightcunt2">Share Chillitalk and Get  <?php echo $this->config->item('currency_symbol_web'); ?>4 Free Credit!</h1>
       <p class="rightcunt2">
           
           <strong>Remember, your friend has to sign-up  using your referral code, then make a payment, in order<br/> 

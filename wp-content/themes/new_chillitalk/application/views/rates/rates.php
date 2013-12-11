@@ -605,13 +605,13 @@ width:600px !important;
               <span class="leftcom">India</span>
           </div>
           <div class="countrate leftcom">
-              <span>1<?php echo $this->session->userdata('rates_web'); ?></span>
+              <span>1<?php echo $this->config->item('rates_web'); ?></span>
           </div>
           <div class="countrate leftcom">
-              <span>1<?php echo $this->session->userdata('rates_web'); ?></span>
+              <span>1<?php echo $this->config->item('rates_web'); ?></span>
           </div>
            <div class="countrate leftcom">
-              <span>12<?php echo $this->session->userdata('rates_web'); ?></span>
+              <span>12<?php echo $this->config->item('rates_web'); ?></span>
           </div>
       </div>
       
@@ -621,13 +621,13 @@ width:600px !important;
               <span class="leftcom">Nigeria</span>
           </div>
           <div class="countrate leftcom">
-              <span>5<?php echo $this->session->userdata('rates_web'); ?></span>
+              <span>5<?php echo $this->config->item('rates_web'); ?></span>
           </div>
           <div class="countrate leftcom">
-              <span>5<?php echo $this->session->userdata('rates_web'); ?></span>
+              <span>5<?php echo $this->config->item('rates_web'); ?></span>
           </div>
            <div class="countrate leftcom">
-              <span>12<?php echo $this->session->userdata('rates_web'); ?></span>
+              <span>12<?php echo $this->config->item('rates_web'); ?></span>
           </div>
       </div>
       
@@ -638,14 +638,14 @@ width:600px !important;
           </div>
           
           <div class="countrate leftcom">
-              <span>1<?php echo $this->session->userdata('rates_web'); ?></span>
+              <span>1<?php echo $this->config->item('rates_web'); ?></span>
           </div>
           
           <div class="countrate leftcom">
-              <span>2<?php echo $this->session->userdata('rates_web'); ?></span>
+              <span>2<?php echo $this->config->item('rates_web'); ?></span>
           </div>
            <div class="countrate leftcom">
-              <span>12<?php echo $this->session->userdata('rates_web'); ?></span>
+              <span>12<?php echo $this->config->item('rates_web'); ?></span>
           </div>
       </div>
       
@@ -656,14 +656,14 @@ width:600px !important;
           </div>
           
           <div class="countrate leftcom">
-              <span>0.5<?php echo $this->session->userdata('rates_web'); ?></span>
+              <span>0.5<?php echo $this->config->item('rates_web'); ?></span>
           </div>
           
           <div class="countrate leftcom">
-              <span>0.5<?php echo $this->session->userdata('rates_web'); ?></span>
+              <span>0.5<?php echo $this->config->item('rates_web'); ?></span>
           </div>
            <div class="countrate leftcom">
-              <span>12<?php echo $this->session->userdata('rates_web'); ?></span>
+              <span>12<?php echo $this->config->item('rates_web'); ?></span>
           </div>
       </div>
       
@@ -1175,9 +1175,9 @@ $(document).ready(function() {
 			  
 			  var d = $.parseJSON(data);
 			  
-			  $('#landline').html(d.MainRate['LandlineRate']+' <?php echo $this->session->userdata('call_rates_web'); ?>');
-			  $('#mobile').html(d.MainRate['MobileRate']+' <?php echo $this->session->userdata('call_rates_web'); ?>');
-			  $('#sms').html(d.MainRate['SmsRate']+' <?php echo $this->session->userdata('sms_rates_web'); ?>');
+			  $('#landline').html(d.MainRate['LandlineRate']+' <?php echo $this->config->item('call_rates_web'); ?>');
+			  $('#mobile').html(d.MainRate['MobileRate']+' <?php echo $this->config->item('call_rates_web'); ?>');
+			  $('#sms').html(d.MainRate['SmsRate']+' <?php echo $this->config->item('sms_rates_web'); ?>');
 			  $('#fixed_rate').text(d.Services[0]['Rate']);
 			  $('#fixed_item').text(d.Services[0]['Item']);
 			  $('#mobile_rate').text(d.Services[1]['Rate']);

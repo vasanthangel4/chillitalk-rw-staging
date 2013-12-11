@@ -334,14 +334,14 @@
             <?php if($call->TalkCharge == '') { ?>
                 <td>-</td>
             <?php }else{ ?>
-                  <td> <?php echo $this->session->userdata('currency_symbol_web').' '.$call->TalkCharge; ?></td>
+                  <td> <?php echo $this->config->item('currency_symbol_web').' '.$call->TalkCharge; ?></td>
             <?php } ?>
             
             <?php if($call->Balance == '') { ?>
                 <td>-</td>
             <?php }else{ ?>
                    <td id="rtxt1"><span class="bold">
-                 <?php echo $this->session->userdata('currency_symbol_web').' '.$call->Balance; ?></span></td>
+                 <?php echo $this->config->item('currency_symbol_web').' '.$call->Balance; ?></span></td>
             <?php } ?>
             
             
@@ -421,7 +421,7 @@
                                 <?php if($top->Amount == '') { ?>
                                     <div>-</div>
                                 <?php }else{ ?>
-                                    <div><?php echo str_replace($this->session->userdata('currency_web'),$this->session->userdata('currency_symbol_web'),$top->Amount); ?></div>
+                                    <div><?php echo str_replace($this->config->item('currency_web'),$this->config->item('currency_symbol_web'),$top->Amount); ?></div>
                                 <?php } ?>
                                 
                                 <?php if($top->CardNo == '') { ?>

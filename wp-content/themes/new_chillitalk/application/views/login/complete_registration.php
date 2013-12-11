@@ -16,7 +16,7 @@
                     <label><?php echo $this->session->userdata('email'); ?></label>
                     <label>
                         Country</label>
-                    <label><?php echo $this->session->userdata('country_name_web'); ?> </label>
+                    <label><?php echo $this->config->item('country_name_web'); ?> </label>
                     <label>
                         First name
                     </label>

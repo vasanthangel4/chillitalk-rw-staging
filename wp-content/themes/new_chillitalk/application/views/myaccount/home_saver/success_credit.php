@@ -82,32 +82,32 @@
                           <tr>
                         	<th style="text-align:left">Home Saver</th>
                             <td>:</td>
-                            <td> <?php echo $this->session->userdata('currency_symbol_web'); ?> <?php echo $this->session->userdata('home_saver'); ?></td>
+                            <td> <?php echo $this->config->item('currency_symbol_web'); ?> <?php echo $this->session->userdata('home_saver'); ?></td>
                         </tr>
                         <tr>
                         	<th style="text-align:left">Additional Numbers</th>
                             <td>:</td>
-                            <td><?php echo $this->session->userdata('currency_symbol_web'); ?> <?php echo $this->session->userdata('add_number'); ?></td>
+                            <td><?php echo $this->config->item('currency_symbol_web'); ?> <?php echo $this->session->userdata('add_number'); ?></td>
                         </tr>
                               <tr>
                         	<th style="text-align:left">Promo code Discount</th>
                             <td>:</td>
-                            <td><?php echo $this->session->userdata('currency_symbol_web'); ?> <?php echo $this->session->userdata('promo_code_discount'); ?></td>
+                            <td><?php echo $this->config->item('currency_symbol_web'); ?> <?php echo $this->session->userdata('promo_code_discount'); ?></td>
                         </tr>
                            <tr>
                         	<th style="text-align:left">Total </th>
                             <td>:</td>
-                            <td> <?php echo $this->session->userdata('currency_symbol_web'); ?> <?php echo $this->session->userdata('total'); ?></td>
+                            <td> <?php echo $this->config->item('currency_symbol_web'); ?> <?php echo $this->session->userdata('total'); ?></td>
                         </tr>	
    				 <tr>
 					<th style="text-align:left"> Previous Balance</th>
                     <td>:</td>
-                    <td> <?php echo $this->session->userdata('currency_symbol_web').' '.$this->session->userdata('balance'); ?></td>
+                    <td> <?php echo $this->config->item('currency_symbol_web').' '.$this->session->userdata('balance'); ?></td>
                  </tr>
             	 <tr>    
 					<th style="text-align:left">Current Balance</th> 
                     <td>:</td>
-                    <td><?php echo $this->session->userdata('currency_symbol_web'); ?> <?php echo round($this->session->userdata('total_bal'),2); ?></td>
+                    <td><?php echo $this->config->item('currency_symbol_web'); ?> <?php echo round($this->session->userdata('total_bal'),2); ?></td>
                  </tr>
 
                     </table>

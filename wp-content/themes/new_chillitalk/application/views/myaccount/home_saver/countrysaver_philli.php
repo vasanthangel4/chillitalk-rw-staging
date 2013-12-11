@@ -5,7 +5,7 @@
 <div style="float:left;display:inline; width:388px;margin-top:10px; line-height:30px;">
 
 
-<h3  style="color:#E42700!important;float:left;display:inline;line-height:30px;width:306px !important;text-indent:0px !important; margin-left:30px;">1500 minutes to<br/> Philippines for just <?php echo $this->session->userdata('currency_symbol_web'); ?>30</h3>  
+<h3  style="color:#E42700!important;float:left;display:inline;line-height:30px;width:306px !important;text-indent:0px !important; margin-left:30px;">1500 minutes to<br/> Philippines for just <?php echo $this->config->item('currency_symbol_web'); ?>30</h3>  
  <p style="float:left;display:inline; width:388px;text-indent:0px !important; margin-left:30px;">Now you can call your loved ones on any<br/> one mobile in Philippines as often as you<br/> want without worrying about the cost.</p>
  
 </div>
@@ -15,7 +15,7 @@
 
 <h3 class="maincomon" style="margin-bottom:0px !important;float:left;display:inline;">How do I save?</h3>
 
-<p class="commfrt "> For <?php echo $this->session->userdata('currency_symbol_web'); ?>30 enjoy 1500 minutes of talk time for 30 days to call to your nominated number in the Philippines. </p>
+<p class="commfrt "> For <?php echo $this->config->item('currency_symbol_web'); ?>30 enjoy 1500 minutes of talk time for 30 days to call to your nominated number in the Philippines. </p>
 <h3 class="rightcunt" style="margin-bottom:0px !important;">
 Who can I call?
 </h3>
@@ -29,7 +29,7 @@ You can register any one mobile in the Philippines operated by Sun Cellular
 What else do I need to know?
 </h3>
 <p class="commfrt">
-You can register up to 3 <?php echo $this->session->userdata('country_code2_web'); ?> mobile numbers and one <?php echo $this->session->userdata('country_code2_web'); ?> landline number under a single Home Saver account. This means you can share Home Saver with your friends and family for only <?php echo $this->session->userdata('currency_symbol_web'); ?>10 for each additional number. Your registered numbers can be changed on a new billing date.
+You can register up to 3 <?php echo $this->config->item('country_code2_web'); ?> mobile numbers and one <?php echo $this->config->item('country_code2_web'); ?> landline number under a single Home Saver account. This means you can share Home Saver with your friends and family for only <?php echo $this->config->item('currency_symbol_web'); ?>10 for each additional number. Your registered numbers can be changed on a new billing date.
 
  </p>
  <h3 class="rightcunt" style="margin-bottom:0px !important;">

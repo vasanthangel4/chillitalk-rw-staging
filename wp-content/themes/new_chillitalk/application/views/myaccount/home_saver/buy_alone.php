@@ -75,7 +75,7 @@
       </div>
       
       <div class="cssaver1 leftcom">
-          <h4><b>Add additional <?php echo $this->session->userdata('country_code2_web'); ?> numbers to share your Home Saver
+          <h4><b>Add additional <?php echo $this->config->item('country_code2_web'); ?> numbers to share your Home Saver
           <br/>(you can register up to 3 mobile and one landline number)</b> 
           </h4>
       </div>
@@ -84,9 +84,9 @@
        
           <select name="add_number" id="add_number" style="margin-left:30px; float:left; width:250px"> 
           	<option value="null">Select an option</option>
-            <option value="1" <?php echo set_select('add_number','1'); ?>>1 Additional Number - <?php echo $this->session->userdata('currency_symbol_web'); ?>5/month</option>
-            <option value="2" <?php echo set_select('add_number','2'); ?>>2 Additional Number - <?php echo $this->session->userdata('currency_symbol_web'); ?>10/month</option>
-            <option value="3" <?php echo set_select('add_number','3'); ?>>3 Additional Number - <?php echo $this->session->userdata('currency_symbol_web'); ?>15/month</option>
+            <option value="1" <?php echo set_select('add_number','1'); ?>>1 Additional Number - <?php echo $this->config->item('currency_symbol_web'); ?>5/month</option>
+            <option value="2" <?php echo set_select('add_number','2'); ?>>2 Additional Number - <?php echo $this->config->item('currency_symbol_web'); ?>10/month</option>
+            <option value="3" <?php echo set_select('add_number','3'); ?>>3 Additional Number - <?php echo $this->config->item('currency_symbol_web'); ?>15/month</option>
           </select>
         
       </div>

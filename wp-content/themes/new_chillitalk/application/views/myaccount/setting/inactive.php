@@ -54,7 +54,7 @@
                             Minimum Amount :
                             </p>
                             <p>
-                             <?php echo $this->session->userdata('currency_symbol_web').' '.$topup->MinLevelID; ?>
+                             <?php echo $this->config->item('currency_symbol_web').' '.$topup->MinLevelID; ?>
                             </p>
                             
                             <br/>
@@ -63,7 +63,7 @@
                            	Auto Top-up Amount :
                             </p>
                             <p>
-                            <?php echo $this->session->userdata('currency_symbol_web').' '.$topup->TopupAmt; ?>
+                            <?php echo $this->config->item('currency_symbol_web').' '.$topup->TopupAmt; ?>
                             </p>
                             
                         </div>

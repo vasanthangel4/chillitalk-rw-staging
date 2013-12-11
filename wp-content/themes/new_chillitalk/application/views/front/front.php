@@ -330,7 +330,7 @@
                                             <div id="landline">0</div>
                                         </div>
                                         <div class="currency-min">
-                                            <div id="landline_rate"><?php echo $this->session->userdata('call_rates_web'); ?></div>
+                                            <div id="landline_rate"><?php echo $this->config->item('call_rates_web'); ?></div>
                                         </div>
                                         <div class="action sdlica none">
                                              special deals 
@@ -353,7 +353,7 @@
                                             <div id="mobile"></div>
                                         </div>
                                         <div class="currency-min">
-                                            <div id="mobile_rate"><?php echo $this->session->userdata('call_rates_web'); ?></div>
+                                            <div id="mobile_rate"><?php echo $this->config->item('call_rates_web'); ?></div>
                                         </div>
                                         <div class="action sdlica none">
                                              Rate
@@ -376,7 +376,7 @@
                                             <div id="sms"></div>
                                         </div>
                                         <div class="currency-min">
-                                            <div id="sms_rate"><?php echo $this->session->userdata('sms_rates_web'); ?></div>
+                                            <div id="sms_rate"><?php echo $this->config->item('sms_rates_web'); ?></div>
                                         </div>
                                         <div class="action sdlica none">
                                              Price 
@@ -425,14 +425,14 @@
             
             </div>
         </section>
-         <section class="maincomon dropcomon1 bgimgtxs1">
+        <section class="maincomon dropcomon1 bgimgtxs1">
       
-        <ul class="maincomon bgimgtxs">
-        <li>Save money on your international calls</li>
-        <li>Call directly from your mobile phone</li>
-        <li>Get started in 30 seconds</li>
-        </ul>
-          	<a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/sign_up/" class="tryus leftcom" ><?php echo lang('home.tryusout'); ?></a>
+            <ul class="maincomon bgimgtxs">
+                <li>Save money on your international calls</li>
+                <li>Call directly from your mobile phone</li>
+                <li>Get started in 30 seconds</li>
+            </ul>
+            <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/sign_up/" class="tryus leftcom" ><?php echo lang('home.tryusout'); ?></a>
         </section>
         <section class="maincomon dropcomon1 leftcom rdess">
             <div class="dropcomon leftcom" style="margin-top: -57px;">
@@ -443,111 +443,121 @@
             
             
             <form method="POST" class="leftcom" style="margin-top:73px">
-        	<div id="radios1" style="margin-left:300px;margin-top:-150px">
-            <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/sign_up">
-            	<input type="radio" id="tim1" value="landline" name="group1" class="{src:'<?php echo get_template_directory_uri(); ?>/img/landlineandmobile.jpg',checked:'<?php echo get_template_directory_uri(); ?>/img/landlineandmobile_select.jpg',hover:'<?php echo get_template_directory_uri(); ?>/img/landlineandmobile_select.jpg',disabled:'<?php echo get_template_directory_uri(); ?>/img/landlineandmobile.jpg' }" title="landline"></a>
-                              
-                 <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/sign_up#mobile">
-                 <input type="radio" id="tim3" onclick="toggle('hide');" value="android" name="group1" class="{src:'<?php echo get_template_directory_uri(); ?>/img/android.png',checked:'<?php echo get_template_directory_uri(); ?>/img/android_select.png',hover:'<?php echo get_template_directory_uri(); ?>/img/android_select.png',disabled:'<?php echo get_template_directory_uri(); ?>/img/android.png'}"  title="Android" />
-                 </a>
-                 
-                     <input type="radio" id="tim2" onclick="toggle('hide');" value="iPhone & iPad" disabled="disabled" name="group1"  class="{src:'<?php echo get_template_directory_uri(); ?>/img/iphone2.png', checked:'<?php echo get_template_directory_uri(); ?>/img/iphone_select.png', hover:'<?php echo get_template_directory_uri(); ?>/img/iphone_select.png', disabled:'<?php echo get_template_directory_uri(); ?>/img/iphone2.png'}" title="iPhone" />
-                 
-                 <input type="radio" id="tim4" onclick="toggle('hide');" value="PC" name="group1" disabled="disabled"  class="{src:'<?php echo get_template_directory_uri(); ?>/img/PC-diselect.png',checked:'<?php echo get_template_directory_uri(); ?>/img/PC_select.png',hover:'<?php echo get_template_directory_uri(); ?>/img/PC_select.png',disabled:'<?php echo get_template_directory_uri(); ?>/img/PC-diselect.png'}"  title="PC" />
-              </div>
-        </form>
+                <div id="radios1" style="margin-left:300px;margin-top:-150px">
+                	<a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/sign_up">
+                    	<input type="radio" id="tim1" value="landline" name="group1" 
+                        class="{src:'<?php echo get_template_directory_uri(); ?>/img/landlineandmobile.jpg',
+                        checked:'<?php echo get_template_directory_uri(); ?>/img/landlineandmobile_select.jpg',
+                        hover:'<?php echo get_template_directory_uri(); ?>/img/landlineandmobile_select.jpg',
+                        disabled:'<?php echo get_template_directory_uri(); ?>/img/landlineandmobile.jpg' }" 
+                        title="landline">
+                     </a>
+                                  
+                     <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/sign_up#android">
+                         <input type="radio" id="tim3" onclick="toggle('hide');" value="android" name="group1" 
+                         class="{src:'<?php echo get_template_directory_uri(); ?>/img/android.png',
+                         checked:'<?php echo get_template_directory_uri(); ?>/img/android_select.png',
+                         hover:'<?php echo get_template_directory_uri(); ?>/img/android_select.png',
+                         disabled:'<?php echo get_template_directory_uri(); ?>/img/android.png'}" 
+                         title="Android" />
+                     </a>
+                     
+                     <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/sign_up#iphone">
+                     	<input type="radio" id="tim2" onclick="toggle('hide');" value="iPhone" name="group1"  
+                        class="{src:'<?php echo get_template_directory_uri(); ?>/img/iphone2.png', 
+                        checked:'<?php echo get_template_directory_uri(); ?>/img/iphone_select.png', 
+                        hover:'<?php echo get_template_directory_uri(); ?>/img/iphone_select.png', 
+                        disabled:'<?php echo get_template_directory_uri(); ?>/img/iphone2.png'}" 
+                        title="iPhone" />
+                     </a>
+                     
+                     <input type="radio" id="tim4" onclick="toggle('hide');" value="PC" name="group1" disabled="disabled"  class="{src:'<?php echo get_template_directory_uri(); ?>/img/PC-diselect.png',checked:'<?php echo get_template_directory_uri(); ?>/img/PC_select.png',hover:'<?php echo get_template_directory_uri(); ?>/img/PC_select.png',disabled:'<?php echo get_template_directory_uri(); ?>/img/PC-diselect.png'}"  title="PC" />
+                </div>
+        	</form>
         
          
         </section>
     </div> </div></div>
     <!--footer section  start here-->
 
-                        <script type="text/javascript">                            window.jQuery || document.write("<script src='<?php echo get_template_directory_uri(); ?>/js/backtotop.js/jquery-1.7.0.min.js'>\x3C/script>")</script>
-                        <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/chillitalk-start.js"></script>
+	<script type="text/javascript">                           
+	 window.jQuery || document.write("<script src='<?php echo get_template_directory_uri(); ?>/js/backtotop.js/jquery-1.7.0.min.js'>\x3C/script>")</script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/chillitalk-start.js"></script>
 
-<script type="text/javascript">
-
-$(document).ready(function() {
+	<script type="text/javascript">
     
-
-	$('#countries').change(function() {
-		//alert($('#countries').val());
-		
-		$.ajax({  
-		  
-		  url: "<?php echo base_url(); ?>home/get_rates/"+$('#countries').val(),
-		  success: function(data) {
-			  //alert(data);
-			  var d = $.parseJSON(data);
-			  
-			  $('#landline').text(d.MainRate['LandlineRate']);
-			  $('#mobile').text(d.MainRate['MobileRate']);
-			  $('#sms').text(d.MainRate['SmsRate']);
-			  $('#special_rate1').text(d.SpecialRates[0]['Description']);
-			  $('#rate1').text(d.SpecialRates[0]['Rate']);
-			  $('#price1').text(d.SpecialRates[0]['Price']);
-			  $('#special_rate2').text(d.SpecialRates[1]['Description']);
-			  $('#rate2').text(d.SpecialRates[1]['Rate']);
-			  $('#price2').text(d.SpecialRates[1]['Price']);
-			  
-			 
-		  },
-		  error: function(jqXHR, textStatus, ex) {
-			  alert(jqXHR.responseText);
-		  }
-	  });
-	  
-	  $('#load_ajax').ajaxStart(function() {
-      		$('#load_ajax').show();
-   	  });
-	  
-	  $("#load_ajax").ajaxComplete(function(){
-      		$('#load_ajax').hide();
-      });
-		 
-	});
+    $(document).ready(function() {
+        
+    
+        $('#countries').change(function() {
+            //alert($('#countries').val());
+            
+            $.ajax({  
+              
+              url: "<?php echo base_url(); ?>home/get_rates/"+$('#countries').val(),
+              success: function(data) {
+                  //alert(data);
+                  var d = $.parseJSON(data);
+                  
+                  $('#landline').text(d.MainRate['LandlineRate']);
+                  $('#mobile').text(d.MainRate['MobileRate']);
+                  $('#sms').text(d.MainRate['SmsRate']);
+                  $('#special_rate1').text(d.SpecialRates[0]['Description']);
+                  $('#rate1').text(d.SpecialRates[0]['Rate']);
+                  $('#price1').text(d.SpecialRates[0]['Price']);
+                  $('#special_rate2').text(d.SpecialRates[1]['Description']);
+                  $('#rate2').text(d.SpecialRates[1]['Rate']);
+                  $('#price2').text(d.SpecialRates[1]['Price']);
+                  
+                 
+              },
+              error: function(jqXHR, textStatus, ex) {
+                  alert(jqXHR.responseText);
+              }
+          });
+          
+          $('#load_ajax').ajaxStart(function() {
+                $('#load_ajax').show();
+          });
+          
+          $("#load_ajax").ajaxComplete(function(){
+                $('#load_ajax').hide();
+          });
+             
+        });
+        
+        $('#search_country').click(function() {
+            if($('#countries').val() == '') {
+                alert('Please type country you want to call');
+            }else{
+            $.ajax({
+              url: "<?php echo base_url(); ?>home/get_rates/"+$('#countries').val(),
+              success: function(data) {
+                  //alert(data);
+                 var d = $.parseJSON(data);
+                  
+                  $('#landline').text(d.MainRate['LandlineRate']);
+                  $('#mobile').text(d.MainRate['MobileRate']);
+                  $('#sms').text(d.MainRate['SmsRate']);
+                  $('#special_rate1').text(d.SpecialRates[0]['Description']);
+                  $('#rate1').text(d.SpecialRates[0]['Rate']);
+                  $('#price1').text(d.SpecialRates[0]['Price']);
+                  $('#special_rate2').text(d.SpecialRates[1]['Description']);
+                  $('#rate2').text(d.SpecialRates[1]['Rate']);
+                  $('#price2').text(d.SpecialRates[1]['Price']);
+                  
+                  
+              },
+              error: function(jqXHR, textStatus, ex) {
+                  alert(jqXHR.responseText);
+              }
+          });
+            }
+        });
+    });	
 	
-	$('#search_country').click(function() {
-		if($('#countries').val() == '') {
-			alert('Please type country you want to call');
-		}else{
-		$.ajax({
-		  url: "<?php echo base_url(); ?>home/get_rates/"+$('#countries').val(),
-		  success: function(data) {
-			  //alert(data);
-			 var d = $.parseJSON(data);
-			  
-			  $('#landline').text(d.MainRate['LandlineRate']);
-			  $('#mobile').text(d.MainRate['MobileRate']);
-			  $('#sms').text(d.MainRate['SmsRate']);
-			  $('#special_rate1').text(d.SpecialRates[0]['Description']);
-			  $('#rate1').text(d.SpecialRates[0]['Rate']);
-			  $('#price1').text(d.SpecialRates[0]['Price']);
-			  $('#special_rate2').text(d.SpecialRates[1]['Description']);
-			  $('#rate2').text(d.SpecialRates[1]['Rate']);
-			  $('#price2').text(d.SpecialRates[1]['Price']);
-			  
-			  
-		  },
-		  error: function(jqXHR, textStatus, ex) {
-			  alert(jqXHR.responseText);
-		  }
-	  });
-		}
-	});
-});	
-</script>
+	$( ".topupns" ).css({ height: "20px" });
+	
+	$( ".slectdt" ).css({ height: "18px" });
 
-
-    <script type="text/javascript">
-$( ".slectdt" ).css({ height: "18px" });
-</script>
-
-    <script type="text/javascript">
-$( ".topupns" ).css({ height: "20px" });
-</script>
-
-<style type="text/css">
-
-
-</style>
+    </script>

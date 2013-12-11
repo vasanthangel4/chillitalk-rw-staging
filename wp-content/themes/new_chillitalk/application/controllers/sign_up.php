@@ -62,7 +62,7 @@ class Sign_up extends MY_Controller{
 							'Email'	=> $email,
 							'PhoneNo'  => $phone_no,
 							'Password' => $password,
-							'PlanId'  => $this->session->userdata('plan_id_web'),
+							'PlanId'  => $this->config->item('plan_id_web'),
 							'Country'  => $country,
 							'RefCode' => $ref_code
 							);
@@ -70,7 +70,7 @@ class Sign_up extends MY_Controller{
 		  	$this->rest->format('application/json');
 		  
 		 	$result = $this->rest->post($uri, $params);
-		  	print_r($result).'<br/><br/>';
+		  	
 			
 			
 			
@@ -81,7 +81,7 @@ class Sign_up extends MY_Controller{
 			  
 				$params_login = array('Login' => $email, 
 									  'Password' => $password,
-									  'Site' => $this->session->userdata('site_code_web'),
+									  'Site' => $this->config->item('site_code_web'),
 									  'IpAddr' => $this->input->ip_address(),
 									  'UserAgent' => $this->input->user_agent()
 									  );
