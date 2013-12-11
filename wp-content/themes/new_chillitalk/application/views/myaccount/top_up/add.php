@@ -322,7 +322,7 @@
                         <div class="rightcunt">
                         
                         <label>   State <span class="red spar">*</span> </label>
-                        <input type="text" placeholder="Enter State.." name="State" value="<?php echo set_value('state'); ?>" required="required">
+                        <input type="text" placeholder="Enter State.." name="state" value="<?php echo set_value('state'); ?>" required="required">
                     </div>        
                     
                     <div class="rightcunt">
@@ -575,7 +575,7 @@
                         <div class="rightcunt">
                         
                         <label>   State <span class="red spar">*</span></label>
-                        <input type="text" placeholder="Enter State.." name="State" value="<?php echo set_value('state'); ?>" required="required">
+                        <input type="text" placeholder="Enter State.." name="state" value="<?php echo set_value('state'); ?>" required="required">
                     </div>        
                     
                    
