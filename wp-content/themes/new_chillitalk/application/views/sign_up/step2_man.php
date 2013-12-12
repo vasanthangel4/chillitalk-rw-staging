@@ -1,8 +1,9 @@
 <!--main logo section  start here-->
 
-  <script type="text/javascript" src='http://code.jquery.com/jquery-1.7.1.min.js'></script>
-    <script src='https://www.vectonemobile.fr/inccss/js_vdf_2012.js' type="text/javascript"></script>
-    <link href='https://www.vectonemobile.fr/inccss/css_style2012.css' rel="stylesheet" type="text/css" />
+     <script type="text/javascript" src='http://code.jquery.com/jquery-1.7.1.min.js'>
+</script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/js_vdf_2012.js"></script>
+<link href="<?php echo get_template_directory_uri(); ?>/css/css_style2012.css" rel="stylesheet" type="text/css" />
  
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/countries-2.0-min.js"></script>
         <div class="maincomon">
