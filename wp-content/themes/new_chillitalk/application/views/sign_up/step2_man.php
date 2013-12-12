@@ -150,7 +150,7 @@ is this number local to you?   </span>   <div style="margin:14px 0 0px -51px !im
                      <h4> Create a Local Number for a friend </h4>             
                     <p>
                       
-put in your friend's international number and we'll give you a <br/> number to call them at your local rate
+put in your friend's international number and we'll give you a  number to call them at your local rate
                     </p>
                       
                     
