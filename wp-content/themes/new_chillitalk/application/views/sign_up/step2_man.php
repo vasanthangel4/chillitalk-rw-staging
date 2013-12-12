@@ -577,7 +577,7 @@ put in your friend's international number and we'll give you a  number to call t
                 </div></div>
                  <div class="txtss">
               <div class="signup blue">
-                            <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/top_up/add_creditcard_alone">skip this step   </a>
+                            <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/top_up/add_creditcard">skip this step   </a>
                         </div>  </div>
                         
                         
