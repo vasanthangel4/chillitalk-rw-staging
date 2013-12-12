@@ -14,7 +14,7 @@
                       free call now
                        </h1>
                        
-                       <h4 style="width:590px !important;float:left;display:inline;margin:6px 0 50px;"><span class="leftcom">Your free registered phone 
+                       <h4 style="width:590px !important;float:left;display:inline;margin:6px 0 0px;"><span class="leftcom">Your free registered phone 
                        number 
                             <span class="red"><?php echo $this->session->userdata('phone_no'); ?></span></span>
                        
@@ -624,7 +624,7 @@ put in your friend's international number and we'll give you a  number to call t
     
     .cstdssd + .commfrt4
     {
-      margin: 56px 0 0 10px !important;
+      margin: 50px 0 0 10px !important;
     }
     
     </style>
