@@ -1316,13 +1316,32 @@
                 <?php } ?>
                 <input type="hidden" name="device" id="device" value="iphone"/>
               </div>
-<<<<<<< HEAD
                 
-              
+              <div>
+                  <label>Create password</label>
+                  
+                  <?php if(form_error('password')) { ?>
+                  <input type="password" name="password" style="color:red;border-color:red" required="required" />
+                  <label>4-12 characters</label>
+                  <?php echo form_error('password','<span style="color:red">','</span>'); ?>
+                  <?php }else{ ?>
+                   <input type="password" name="password" required="required" />
+                  <label>4-12 characters</label>
+                  
+                  <?php } ?>           
+              </div>
+             
+              <div>
+                  <label>Confirm password</label>
+                  
+                  <?php if(form_error('confirm_password')) { ?>
+                  <input type="password" name="confirm_password" required="required" style="border-color:red" />
+                  <?php echo form_error('confirm_password','<span style="color:red">','</span>'); ?>
+                  <?php }else{ ?>
+                  <input type="password" name="confirm_password" required="required" />
+                  <?php } ?>
+              </div>
     
-=======
-           
->>>>>>> 36e3e3f517f276beb2d06257c52d954642a9c244
               <div>
                   <label>
                   </label>
