@@ -13,7 +13,8 @@
                       free call now
                        </h1>
                        
-                       <h4 style="width:590px !important;float:left;display:inline;margin:6px 0 50px;"><span class="leftcom">Your free registered phone number 
+                       <h4 style="width:590px !important;float:left;display:inline;margin:6px 0 50px;"><span class="leftcom">Your free registered phone 
+                       number 
                             <span class="red"><?php echo $this->session->userdata('phone_no'); ?></span></span>
                        
                        
@@ -113,7 +114,7 @@ is this number local to you?   </span>   <div style="margin:14px 0 0px -51px !im
 						}
 						 ?></span></strong> from your registered phone<br/>
 
-2. Dial your friend's international number on<br/> prompt to connect
+2. Dial your friend's international number on prompt to connect
                     </p>
                 <!--    <p>
                         <img src="<?php echo $this->session->userdata('user_flag'); ?>" alt="Chillitalk Users" />
@@ -611,7 +612,7 @@ put in your friend's international number and we'll give you a <br/> number to c
 	}
 	.js .helpText .icon, .js .helpTextOff .icon, .js .helpTextAlt .icon, .js .helpTextAltOff .icon
 	{
-	margin:-2px 0 0 110px !important;
+	margin:-2px 0 0 7px !important;
 	}
     
     </style>
