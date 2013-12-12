@@ -615,6 +615,17 @@ put in your friend's international number and we'll give you a  number to call t
 	{
 	margin:-2px 0 0 7px !important;
 	}
+	#form_info .js .helpText .icon, #form_info .js .helpTextOff .icon, #form_info .js .helpTextAlt .icon, #form_info .js .helpTextAltOff .icon
+	{
+	margin:5px 0 0 10px !important;
+	}
+	
+	
+    
+    .cstdssd + .commfrt4
+    {
+      margin: 56px 0 0 10px !important;
+    }
     
     </style>
         <!--footer section  start here-->
