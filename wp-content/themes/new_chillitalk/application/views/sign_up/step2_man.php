@@ -31,7 +31,7 @@
                                      </div></div>
     
                         </h4>
-                        <div class="tssddx none" id="form_info">
+                        <div class="tssddx" id="form_info">
                         <span class="leftcom">  Your Access Number <span class="red">
 						<?php if($this->session->userdata('new_access_no') != '') {
 							echo $this->session->userdata('new_access_no');
