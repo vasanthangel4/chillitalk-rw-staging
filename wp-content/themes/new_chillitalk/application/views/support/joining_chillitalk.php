@@ -29,56 +29,66 @@
     <section> 
 <h1>Getting Started</h1> 
  <h3>
-Who can join Chillitalk?  </h3> 
- <p>Anybody – anywhere in the world.</p>
+Who can join Chillitalk? </h3> 
+ <p>You can! And so can anybody from anywhere in the world when they  <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/application/">download Chillitalk!</a></p>
 <h3>How do I join Chillitalk?</h3>
    <p>
-Joining Chillitalk is quick and easy, whatever device you use. Just 
-<a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/sign_up">sign-up</a> 
-online or  <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/apps">download</a> 
-the Chillitalk App.
+Joining Chillitalk is quick and easy with whatever device you use. Just <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/sign_up">sign-up</a> 
+online or <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/apps">download</a> the Chillitalk App.
 </p> 
-   <h3>What do I need to join Chillitalk?</h3>
+   <h3>How do I join Chillitalk on which to make your calls?</h3>
      <p>
- You just need a calling device on which to make your calls. This could be a smartphone, a regular cellphone a landline or a PC.
+ Just sign up online or download the Chillitalk App. Joining Chillitalk is quick and easy – you just need any calling device on which to make your calls. This could be a Smartphone, a regular mobile phone, a landline or a PC.
    </p>
     <h3>Can I try Chillitalk for free?</h3>
      <p>
-Yes. Just  <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/sign_up">sign-up to Chillitalk</a> 
-and you can try your first call for free!
+Yes. Just  <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/sign_up">sign up to Chillitalk </a> 
+and you can try your <b>first call FREE!</b>
    </p>
    
-  <h3>Do I need a landline to use Chillitalk?</h3>
+  <h3>Do I need a landline to use Chillitalk? </h3>
    <p>
-  You don’t necessarily need a landline, but you can use a landline with Chillitalk.  
-   <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/sign_up">Click here</a> 
-  to learn more.
+No. You don’t necessarily need a landline, but you can use a landline with Chillitalk. 
+
+   <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/application/">Click here to learn more
+   </a>.
       </p>  
   
-     <h3>Do I need a smartphone to use Chillitalk?</h3>
+     <h3>Can I use a regular phone to use Chillitalk?</h3>
    <p>
- Chillitalk can be used on most calling devices, including smartphones. We recommend you 
- <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/apps">download</a> the Chillitalk App if you use a smartphone. You can also use a landline or regular cellphone with our 
- <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/support/Using_chillitalk"> 
- Local Numbers</a> feature.
+Yes. You can use a regular mobile phone or landline with our 
+
+<a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/apps">Local Numbers </a> 
+feature. 
       </p>  
    
     <h3>How much does Chillitalk cost?</h3>
     
    <p>
-<a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/rates/">Click here</a>  to see our rates page.
+Chillitalk is super-cheap or FREE! 
+<a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/rates/"> Click here to see our rates page.
+</a>  
       </p>  
    
       <h3>Can I receive calls with Chillitalk?</h3>
     
    <p>
-If you use Chillitalk with a smartphone or PC you can receive calls from other Chillitalk App users. Remember that calls between Chillitalk Apps are free.
+If you use Chillitalk with a Smartphone or PC you can receive calls from other Chillitalk App users.
+Remember that calls between Chillitalk Apps are <b>FREE</b> if you 
+<a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/local_number/">
+download the Chillitalk App</a>.
+
       </p>  
    
      <h3>Can I send text messages with Chillitalk?</h3>
     
    <p>
-You can send text messages using the Chillitalk App. An internet connection is required.  </p>  
+Yes. You can send texts and SMS using the Chillitalk App. An internet connection is required.    </p>  
+
+     <h3>Can I receive texts with Chillitalk? </h3>
+    
+   <p>
+No. Not yet, but we are working to provide this in the future.  </p>  
    
    
     </section>
