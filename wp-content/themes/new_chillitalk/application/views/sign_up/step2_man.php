@@ -60,7 +60,7 @@ is this number local to you?   </span>   <div style="margin:14px 0 0px -51px !im
        <div class="drobtcd">
 
   <label>Your Country</label>
-  <input type="text" readonly="readonly" value="<?php echo $this->session->userdata('country_sidebar'); ?>" 
+  <input type="text" readonly="readonly" value="<?php echo $this->session->userdata('country_full_sidebar'); ?>" 
   name="country_name" />
           </div>
          
@@ -70,10 +70,10 @@ is this number local to you?   </span>   <div style="margin:14px 0 0px -51px !im
 
  <select title="Select state" id="state" name="state" required>
  	<?php foreach($state->List as $val) { ?>
-    	<?php if($this->session->userdata('state_sidebar') == $val->Province) { ?>
-        <option value="<?php echo $val->Province; ?>" selected="selected"><?php echo $val->Province; ?></option>
+    	<?php if($this->session->userdata('state_sidebar') == $val->City) { ?>
+        <option value="<?php echo $val->City; ?>" selected="selected"><?php echo $val->City; ?></option>
         <?php }else{ ?>
-        <option value="<?php echo $val->Province; ?>"><?php echo $val->Province; ?></option>
+        <option value="<?php echo $val->City; ?>"><?php echo $val->City; ?></option>
         <?php } ?>
     	
     <?php } ?>
