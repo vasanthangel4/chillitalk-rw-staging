@@ -13,7 +13,7 @@
                       free call now
                        </h1>
                        
-                       <h4><span class="leftcom">Your free registered phone number 
+                       <h4 style="width:590px !important;float:left;display:inline;margin:6px 0 50px;"><span class="leftcom">Your free registered phone number 
                        <span class="red"><?php echo $this->session->userdata('phone_no'); ?></span></span>
                        
                        
@@ -29,7 +29,7 @@
                                      </div></div>
     
                         </h4>
-                        <div class="tssddx" id="form_info">
+                        <div class="tssddx none" id="form_info">
                         <span class="leftcom">  Your Access Number <span class="red">
 						<?php if($this->session->userdata('new_access_no') != '') {
 							echo $this->session->userdata('new_access_no');
@@ -55,7 +55,7 @@ is this number local to you?   </span>   <div style="margin:14px 0 0px -51px !im
 </div>
 
 </div>
-  <div class="tssddx" id="from_change_access_no" style="display:none;">
+  <div class="tssddx " id="from_change_access_no" style="display:none;">
  <form name="rfm" method="post" action="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/sign_up/change_state">
        <div class="drobtcd">
 
@@ -608,6 +608,10 @@ put in your friend's international number and we'll give you a number to call th
     height: 26px;
  
     width: 26px;
+	}
+	.js .helpText .icon, .js .helpTextOff .icon, .js .helpTextAlt .icon, .js .helpTextAltOff .icon
+	{
+	margin:-2px 0 0 110px !important;
 	}
     
     </style>
