@@ -56,7 +56,7 @@
                         </tr>
                         <tr>
                         	<th style="text-align:left">Previous Balance</th>
-                            <td><?php echo $this->session->userdata('prev_bal_card1'); ?></td>
+                            <td><?php echo $this->config->item('currency_symbol_web'); ?> <?php echo $this->session->userdata('prev_bal_card1'); ?></td>
                         </tr>
                         <tr>
                         	<th style="text-align:left">Current Balance</th>
