@@ -14,7 +14,7 @@
                        </h1>
                        
                        <h4 style="width:590px !important;float:left;display:inline;margin:6px 0 50px;"><span class="leftcom">Your free registered phone number 
-                       <span class="red"><?php echo $this->session->userdata('phone_no'); ?></span></span>
+                            <span class="red"><?php echo $this->session->userdata('phone_no'); ?></span></span>
                        
                        
                        
@@ -148,7 +148,7 @@ is this number local to you?   </span>   <div style="margin:14px 0 0px -51px !im
                      <h4> Create a Local Number for a friend </h4>             
                     <p>
                       
-put in your friend's international number and we'll give you a number to call them at your local rate
+put in your friend's international number and we'll give you a <br/> number to call them at your local rate
                     </p>
                       
                     
