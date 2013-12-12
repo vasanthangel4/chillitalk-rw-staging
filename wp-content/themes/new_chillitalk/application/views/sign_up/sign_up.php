@@ -1316,13 +1316,7 @@
                 <?php } ?>
                 <input type="hidden" name="device" id="device" value="iphone"/>
               </div>
-<<<<<<< HEAD
-                
-              
-    
-=======
-           
->>>>>>> 36e3e3f517f276beb2d06257c52d954642a9c244
+
               <div>
                   <label>
                   </label>
