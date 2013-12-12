@@ -245,7 +245,7 @@
                             <option value="">
                             MM
                             </option>
-                            <?php for($i=1;$i<=31;$i++) { ?>
+                            <?php for($i=1;$i<=12;$i++) { ?>
                             	<?php if(strlen($i) == 1) { ?>
                                 <option value="<?php echo '0'.$i; ?>"><?php echo '0'.$i; ?></option>
                                 <?php }else{ ?>
@@ -259,7 +259,7 @@
                              <option value="">
                              YYYY
                              </option>
-                             <?php for($j=2010;$j<=2050;$j++) { ?>
+                             <?php for($j=2010;$j<=2020;$j++) { ?>
                                 <option value="<?php echo $j; ?>"><?php echo $j; ?></option>
                             <?php } ?>
                             </select>
@@ -498,7 +498,7 @@
                             <option value="">
                             MM
                             </option>
-                            <?php for($i=1;$i<=31;$i++) { ?>
+                            <?php for($i=1;$i<=12;$i++) { ?>
                             	<?php if(strlen($i) == 1) { ?>
                                 <option value="<?php echo '0'.$i; ?>"><?php echo '0'.$i; ?></option>
                                 <?php }else{ ?>
@@ -512,7 +512,7 @@
                              <option value="">
                              YYYY
                              </option>
-                             <?php for($j=2010;$j<=2050;$j++) { ?>
+                             <?php for($j=2010;$j<=2020;$j++) { ?>
                                 <option value="<?php echo $j; ?>"><?php echo $j; ?></option>
                             <?php } ?>
                             </select>
