@@ -37,10 +37,10 @@ To call Enter dial <strong><span class="red"><?php echo $this->session->userdata
                   
                     <div class="secbutton">
                         <div class="signup blue">
-                            <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/sign_up/step4/">Finish   </a>
+                            <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/top_up/add_creditcard">Finish   </a>
                         </div>
                         <div class="signup green">
-                            <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/top_up/add_creditcard_alone/">add credit </a>
+                            <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/top_up/add_creditcard/">add credit </a>
                         </div>
                     </div>
                 </div>

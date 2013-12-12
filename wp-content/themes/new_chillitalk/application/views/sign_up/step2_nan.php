@@ -33,7 +33,7 @@
             <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/dashboard/">Finish   </a>
         </div>
         <div class="signup green">
-            <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/top_up/add_creditcard_alone/">add credit </a>
+            <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/top_up/add_creditcard">add credit </a>
         </div>
         
       </div>  

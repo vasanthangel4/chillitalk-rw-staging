@@ -1,8 +1,9 @@
 <!--main logo section  start here-->
 
-  <script type="text/javascript" src='http://code.jquery.com/jquery-1.7.1.min.js'></script>
-    <script src='https://www.vectonemobile.fr/inccss/js_vdf_2012.js' type="text/javascript"></script>
-    <link href='https://www.vectonemobile.fr/inccss/css_style2012.css' rel="stylesheet" type="text/css" />
+     <script type="text/javascript" src='http://code.jquery.com/jquery-1.7.1.min.js'>
+</script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/js_vdf_2012.js"></script>
+<link href="<?php echo get_template_directory_uri(); ?>/css/css_style2012.css" rel="stylesheet" type="text/css" />
  
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/countries-2.0-min.js"></script>
         <div class="maincomon">
@@ -13,8 +14,9 @@
                       free call now
                        </h1>
                        
-                       <h4><span class="leftcom">Your free registered phone number 
-                       <span class="red"><?php echo $this->session->userdata('phone_no'); ?></span></span>
+                       <h4 style="width:590px !important;float:left;display:inline;margin:6px 0 0px;"><span class="leftcom">Your free registered phone 
+                       number 
+                            <span class="red"><?php echo $this->session->userdata('phone_no'); ?></span></span>
                        
                        
                        
@@ -55,7 +57,7 @@ is this number local to you?   </span>   <div style="margin:14px 0 0px -51px !im
 </div>
 
 </div>
-  <div class="tssddx" id="from_change_access_no" style="display:none;">
+  <div class="tssddx " id="from_change_access_no" style="display:none;">
  <form name="rfm" method="post" action="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/sign_up/change_state">
        <div class="drobtcd">
 
@@ -113,7 +115,7 @@ is this number local to you?   </span>   <div style="margin:14px 0 0px -51px !im
 						}
 						 ?></span></strong> from your registered phone<br/>
 
-2. Dial your friend's international number on<br/> prompt to connect
+2. Dial your friend's international number on prompt to connect
                     </p>
                 <!--    <p>
                         <img src="<?php echo $this->session->userdata('user_flag'); ?>" alt="Chillitalk Users" />
@@ -148,7 +150,7 @@ is this number local to you?   </span>   <div style="margin:14px 0 0px -51px !im
                      <h4> Create a Local Number for a friend </h4>             
                     <p>
                       
-put in your friend's international number and we'll give you a number to call them at your local rate
+put in your friend's international number and we'll give you a  number to call them at your local rate
                     </p>
                       
                     
@@ -575,7 +577,7 @@ put in your friend's international number and we'll give you a number to call th
                 </div></div>
                  <div class="txtss">
               <div class="signup blue">
-                            <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/top_up/add_creditcard_alone">skip this step   </a>
+                            <a href="<?php echo base_url(); ?><?php echo $this->session->userdata('lang'); ?>/myaccount/top_up/add_creditcard">skip this step   </a>
                         </div>  </div>
                         
                         
@@ -609,6 +611,21 @@ put in your friend's international number and we'll give you a number to call th
  
     width: 26px;
 	}
+	.js .helpText .icon, .js .helpTextOff .icon, .js .helpTextAlt .icon, .js .helpTextAltOff .icon
+	{
+	margin:-2px 0 0 7px !important;
+	}
+	#form_info .js .helpText .icon, #form_info .js .helpTextOff .icon, #form_info .js .helpTextAlt .icon, #form_info .js .helpTextAltOff .icon
+	{
+	margin:5px 0 0 10px !important;
+	}
+	
+	
+    
+    .cstdssd + .commfrt4
+    {
+      margin: 50px 0 0 10px !important;
+    }
     
     </style>
         <!--footer section  start here-->
