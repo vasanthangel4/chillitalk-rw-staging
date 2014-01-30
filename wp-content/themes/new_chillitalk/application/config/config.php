@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://my-chillitalk.azurewebsites.net/';
+$config['base_url']	= 'http://chillitalk-rw-staging.azurewebsites.net/';
 
 /*
 |--------------------------------------------------------------------------
